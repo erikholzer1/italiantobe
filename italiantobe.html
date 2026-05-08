@@ -378,7 +378,15 @@
       .cta-btns { flex-direction: row; justify-content: center; flex-wrap: wrap; }
       footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
       .capture { padding: 3.5rem 1.5rem; }
+      .diy-card { grid-template-columns: 1fr; }
+      .diy-cta { text-align: left; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 1.5rem; margin-top: 0.5rem; }
+      .diy-cta .btn-navy { width: 100%; text-align: center; box-sizing: border-box; }
     }
+
+    /* DIY CARD */
+    .diy-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; border-left: 4px solid var(--green); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; background: var(--light); }
+    .diy-body { min-width: 0; }
+    .diy-cta { text-align: center; flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -560,12 +568,12 @@
     <p class="section-sub">We start with a free eligibility conversation to understand what you're working with. From there, your case is handled at the level it actually requires.</p>
 
     <!-- DIY ADVISORY CARD -->
-    <div style="border:1px solid rgba(0,0,0,0.08); border-radius:2px; border-left:4px solid var(--green); padding:2rem 2.5rem; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; margin-bottom:2rem; background:var(--light);">
-      <div>
+    <div class="diy-card">
+      <div class="diy-body">
         <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem;">Self-Guided Option</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dark);margin-bottom:0.5rem;">Do It Yourself — With Expert Support</h3>
         <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:0.75rem;">You do the legwork. We make sure you're doing it right. Ideal for people who want to stay hands-on but need an expert in their corner to guide, review, and course-correct along the way. 3-month package.</p>
-        <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+        <div style="display:flex;gap:1rem 2rem;flex-wrap:wrap;">
           <span style="font-size:0.8rem;color:var(--mid);"><strong style="color:var(--dark);">✦</strong> WhatsApp messaging support</span>
           <span style="font-size:0.8rem;color:var(--mid);"><strong style="color:var(--dark);">✦</strong> 1 initial video call — 30 minutes</span>
           <span style="font-size:0.8rem;color:var(--mid);"><strong style="color:var(--dark);">✦</strong> 2 audio calls per month — 15 minutes each</span>
@@ -573,7 +581,7 @@
           <span style="font-size:0.8rem;color:var(--mid);"><strong style="color:var(--dark);">✦</strong> Comune request templates in Italian</span>
         </div>
       </div>
-      <div style="text-align:center;flex-shrink:0;">
+      <div class="diy-cta">
         <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1;">$900</div>
         <div style="font-size:0.75rem;color:var(--mid);margin-bottom:1rem;">3-month package</div>
         <a href="mailto:erikholzer1@gmail.com" class="btn-navy" style="display:inline-block;white-space:nowrap;">Get Started</a>
