@@ -272,7 +272,16 @@
     /* Sticky nav is ~69px: without this the anchor jump hides the target beneath it.
    #guide-form is the embedded signup, so "Get the Free Guide" lands on the
    name and email fields rather than on the heading above them. */
-#capture { scroll-margin-top: 90px; }
+#assess { scroll-margin-top: 90px; }
+    .assess { background: var(--cream); padding: 4.5rem 4rem; }
+    .assess-inner { max-width: 900px; margin: 0 auto; }
+    .assess-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; margin: 2rem 0 2.2rem; }
+    .assess-point { font-size: 0.92rem; line-height: 1.55; color: var(--mid); border-top: 2px solid var(--gold); padding-top: 0.8rem; }
+    .assess-point strong { display: block; color: var(--dark); font-weight: 650; margin-bottom: 0.2rem; }
+    .assess-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+    .assess-note { font-size: 0.78rem; color: var(--mid); margin: 1rem 0 2rem; }
+    @media (max-width: 768px) { .assess { padding: 3rem 1.5rem; } }
+    #capture { scroll-margin-top: 90px; }
 #guide-form { scroll-margin-top: 100px; }
 .capture { background: var(--green); padding: 5rem 4rem; }
     .capture-inner { max-width: 620px; margin: 0 auto; text-align: center; }
@@ -461,12 +470,12 @@
   <nav>
     <a href="#" class="nav-logo">Italian<span>ToBe</span></a>
     <ul class="nav-links">
-      <li><a href="#qualify">Do I Qualify?</a></li>
+      <li><a href="#assess">Do I Qualify?</a></li>
       <li><a href="#how">The Process</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="/blog">Guides</a></li>
+      <li><a href="#guide-form">Free Guide</a></li>
       <li><a href="#contact" class="nav-cta">Book a Call</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -475,12 +484,12 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="#qualify" onclick="closeMobileMenu()">Do I Qualify?</a></li>
+      <li><a href="#assess" onclick="closeMobileMenu()">Do I Qualify?</a></li>
       <li><a href="#how" onclick="closeMobileMenu()">The Process</a></li>
       <li><a href="#packages" onclick="closeMobileMenu()">Packages</a></li>
       <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
       <li><a href="#news" onclick="closeMobileMenu()">News</a></li>
-      <li><a href="/blog" onclick="closeMobileMenu()">Guides</a></li>
+      <li><a href="#guide-form" onclick="closeMobileMenu()">Free Guide</a></li>
       <li><a href="#book" onclick="closeMobileMenu()">Book a Free Call</a></li>
       <li><a href="#guide-form" onclick="closeMobileMenu()">Get the Free Guide</a></li>
     </ul>
@@ -511,6 +520,53 @@
     <div class="strip-item"><span class="strip-num">Dual</span><span class="strip-label">Keep your US citizenship</span></div>
     <div class="strip-item"><span class="strip-num">🇮🇹</span><span class="strip-label">Naples-based team with Italian legal counsel</span></div>
   </div>
+
+  <!-- AI-ASSISTED ELIGIBILITY ASSESSMENT
+       NOTE: the button below points at the assessment app, which is NOT
+       deployed yet. It will 404 until app.italiantobe.com is live. -->
+  <section class="assess" id="assess">
+    <div class="assess-inner">
+      <p class="section-tag">Eligibility</p>
+      <h2 class="section-title">Do you qualify?</h2>
+      <p class="section-sub">
+        The 2025 reform closed the traditional route for most people and left a few
+        doors open. Answer a guided set of questions about your family line and get
+        a verdict for every route &mdash; not a yes or a no &mdash; plus the specific
+        facts your case turns on and the records that would settle them.
+      </p>
+
+      <div class="assess-points">
+        <div class="assess-point"><strong>Every route assessed separately.</strong> Consular, the 1948 court route, and residency are judged on their own merits.</div>
+        <div class="assess-point"><strong>It tells you what it cannot know.</strong> Where an answer depends on a missing record, it names the record instead of guessing.</div>
+        <div class="assess-point"><strong>Built on the law as it stands now.</strong> Every verdict records the ruleset it was assessed against and the date.</div>
+      </div>
+
+      <div class="assess-cta">
+        <a href="https://app.italiantobe.com/" class="btn-gold">Start Your Assessment</a>
+        <a href="#guide-form" class="btn-navy">Or get the free guide first</a>
+      </div>
+      <p class="assess-note">
+        A preliminary assessment, not legal advice. ItalianToBe is a consulting
+        service, not a law firm.
+      </p>
+
+<div class="law-alert">
+          <div class="law-alert-icon">⚖️</div>
+          <div>
+            <h5>Law 74/2025 — Italy's Citizenship Reform (confirmed March 2026)</h5>
+            <p>As of <strong>May 24, 2025</strong>, jure sanguinis is limited to <strong>two generations</strong>: your Italian-born ancestor must be a parent or grandparent. Great-grandparent and further claims are no longer automatic for new applications. On <strong>March 12, 2026</strong>, Italy's Constitutional Court upheld this law — the two-generation limit is now constitutionally confirmed. If your application was filed before <strong>March 27, 2025 (11:59 pm Rome time)</strong>, old rules still apply. Special 1948 rule and residency paths remain available. <a href="#rule1948">Learn more below →</a></p>
+          </div>
+        </div>
+
+<div class="pending-alert">
+          <div class="law-alert-icon">🔔</div>
+          <div>
+            <h5>Pending: Supreme Court Ruling on the "Minor Issue" — April 2026</h5>
+            <p>On <strong>April 14, 2026</strong>, Italy's Supreme Court (Sezioni Unite) heard a landmark set of cases addressing whether a parent's naturalization while a child was a minor breaks the citizenship chain for all descendants. The written ruling has not yet been issued and could significantly affect eligibility for many applicants. We will update this site as soon as the decision is published.</p>
+          </div>
+        </div>
+    </div>
+  </section>
 
   <!-- NEWS SECTION -->
   <section class="news-section" id="news">
@@ -573,69 +629,6 @@
   </section>
 
   <!-- DO YOU QUALIFY -->
-  <section class="qualify" id="qualify">
-    <div class="qualify-grid">
-      <div>
-        <p class="section-tag">Eligibility</p>
-        <h2 class="section-title">Do you qualify for Italian citizenship?</h2>
-        <p class="section-sub">Italy grants citizenship by descent (jure sanguinis). If your parent or grandparent was Italian, you may have a legal right to an Italian passport. Italy's 2025 reform limits the automatic claim to two generations.</p>
-        <div class="law-alert">
-          <div class="law-alert-icon">⚖️</div>
-          <div>
-            <h5>Law 74/2025 — Italy's Citizenship Reform (confirmed March 2026)</h5>
-            <p>As of <strong>May 24, 2025</strong>, jure sanguinis is limited to <strong>two generations</strong>: your Italian-born ancestor must be a parent or grandparent. Great-grandparent and further claims are no longer automatic for new applications. On <strong>March 12, 2026</strong>, Italy's Constitutional Court upheld this law — the two-generation limit is now constitutionally confirmed. If your application was filed before <strong>March 27, 2025 (11:59 pm Rome time)</strong>, old rules still apply. Special 1948 rule and residency paths remain available. <a href="#rule1948">Learn more below →</a></p>
-          </div>
-        </div>
-        <div class="pending-alert">
-          <div class="law-alert-icon">🔔</div>
-          <div>
-            <h5>Pending: Supreme Court Ruling on the "Minor Issue" — April 2026</h5>
-            <p>On <strong>April 14, 2026</strong>, Italy's Supreme Court (Sezioni Unite) heard a landmark set of cases addressing whether a parent's naturalization while a child was a minor breaks the citizenship chain for all descendants. The written ruling has not yet been issued and could significantly affect eligibility for many applicants. We will update this site as soon as the decision is published.</p>
-          </div>
-        </div>
-        <a href="#guide-form" class="btn-navy" style="display:inline-block;">Get the Free Qualification Guide →</a>
-      </div>
-      <div class="qualify-checks">
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <div>
-            <h4>Your Italian-born parent or grandparent was Italian at the time your family line was born</h4>
-            <p>Under Law 74/2025, the two-generation limit applies. Your parent or grandparent must be the Italian-born ancestor. Claims through great-grandparents are no longer automatically valid under the new law.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <div>
-            <h4>Your Italian ancestor did not naturalize before your family line was born</h4>
-            <p>Naturalization breaks the chain. We help you determine exactly when — and if — this applies to your case.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <div>
-            <h4>The lineage passes through a male, or a female born after 1948</h4>
-            <p>Female-line claims before 1948 are called "1948 cases" and require a separate court process — still possible, just different.</p>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon">✓</div>
-          <div>
-            <h4>You can document the connection with vital records</h4>
-            <p>Birth, death, and marriage certificates from both Italy and the US. We show you the exact list you need.</p>
-          </div>
-        </div>
-        <div class="check-item warn">
-          <div class="check-icon">!</div>
-          <div>
-            <h4>Watch out: the "Minor Issue" — does the chain break at a minor child?</h4>
-            <p>Under Italy's 1912 law, if an Italian ancestor naturalized as a foreigner while their child was still a minor living with them, that child automatically lost Italian citizenship too — breaking the chain for all descendants. Before March 10, 1975, the age of majority in Italy was <strong>21</strong> (not 18). This issue is currently before Italy's Supreme Court (ruling pending April 2026). It's one of the most important — and overlooked — eligibility questions. <a href="#faq" style="color:#92350A;font-weight:600;">See FAQ below →</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
   <section class="how" id="how">
     <p class="section-tag">The Process</p>
     <h2 class="section-title" style="color:#fff;">Four steps. <em style="color:var(--gold);font-style:italic;">One passport.</em></h2>
@@ -976,7 +969,7 @@
     <span class="footer-logo">ItalianToBe</span>
     <span class="footer-copy">© 2026 ItalianToBe · Naples, Italy</span>
     <nav class="footer-links">
-      <a href="#qualify">Do I Qualify?</a>
+      <a href="#assess">Do I Qualify?</a>
       <a href="#packages">Packages</a>
       <a href="#about">About</a>
       <a href="#news">News</a>
