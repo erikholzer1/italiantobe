@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You | ItalianToBe</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A2744;
+      --gold: #c9a84c;
+      --green: #2D6A4F;
+      --dark: #1a1a1a;
+      --mid: #6b7280;
+      --light: #f8f7f4;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(26,39,68,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
+    .nav-logo span { color: rgba(255,255,255,0.55); font-style: italic; }
+
+    /* MAIN */
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 5rem 2rem; }
+    .card { max-width: 640px; width: 100%; text-align: center; }
+    .checkmark { width: 64px; height: 64px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; }
+    .checkmark svg { width: 30px; height: 30px; stroke: #fff; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .card h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.25rem; }
+    .card h1 em { font-style: italic; color: var(--gold); }
+    .card .lead { font-size: 1rem; color: var(--mid); line-height: 1.9; font-weight: 300; margin-bottom: 3rem; }
+
+    /* ACTION CARDS */
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+    .action-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; padding: 1.75rem 1.5rem; text-align: left; text-decoration: none; transition: border-color 0.2s; display: block; }
+    .action-card:hover { border-color: var(--gold); }
+    .action-card .tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+    .action-card.green .tag { color: var(--green); }
+    .action-card.navy .tag { color: var(--navy); }
+    .action-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dark); margin-bottom: 0.5rem; line-height: 1.3; }
+    .action-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; font-weight: 300; }
+    .action-card .arrow { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-top: 0.75rem; display: block; }
+
+    .back-link { font-size: 0.82rem; color: var(--mid); text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 1px; transition: color 0.2s; }
+    .back-link:hover { color: var(--navy); }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      .actions { grid-template-columns: 1fr; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Italian<span>ToBe</span></a>
+  </nav>
+
+  <div class="main">
+    <div class="card">
+      <div class="checkmark">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Grazie — <em>we'll be in touch.</em></h1>
+      <p class="lead">Thank you so much for your submission. We'll be reviewing your responses carefully and will reach out within the next few days with a tailored quote for your situation.</p>
+
+      <div class="actions">
+        <a href="index.html#capture" class="action-card green">
+          <span class="tag">Free Resource</span>
+          <h3>Download the Free Citizenship Guide</h3>
+          <p>If you haven't already, grab the free guide — it'll give you a strong head start while you wait to hear from us.</p>
+          <span class="arrow">Get the guide →</span>
+        </a>
+        <a href="https://calendly.com/italiantobe" target="_blank" class="action-card navy">
+          <span class="tag">Free · 10 Minutes</span>
+          <h3>Book a Free Discovery Call</h3>
+          <p>We strongly encourage a quick call to walk through your situation together and explore what options may be available to you.</p>
+          <span class="arrow">Book your call →</span>
+        </a>
+      </div>
+
+      <a href="index.html" class="back-link">← Back to ItalianToBe</a>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">ItalianToBe</span>
+    <span class="footer-copy">© 2026 ItalianToBe · Naples, Italy</span>
+  </footer>
+
+</body>
+</html>

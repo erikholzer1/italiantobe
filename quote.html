@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Your Custom Quote | ItalianToBe</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A2744;
+      --gold: #c9a84c;
+      --green: #2D6A4F;
+      --dark: #1a1a1a;
+      --mid: #6b7280;
+      --light: #f8f7f4;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(26,39,68,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
+    .nav-logo span { color: rgba(255,255,255,0.55); font-style: italic; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* HEADER */
+    .page-header { background: var(--navy); padding: 5rem 2rem 4rem; text-align: center; }
+    .page-header p { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; line-height: 1.2; margin-bottom: 1rem; }
+    .page-header h1 em { font-style: italic; color: var(--gold); }
+    .page-header .sub { color: rgba(255,255,255,0.55); font-size: 0.95rem; font-weight: 300; max-width: 520px; margin: 0 auto; line-height: 1.8; }
+
+    /* FORM */
+    .form-wrap { max-width: 680px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .form-section { margin-bottom: 2.5rem; }
+    .form-section label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+    .form-section .hint { font-size: 0.78rem; color: var(--mid); font-weight: 300; margin-top: -0.4rem; margin-bottom: 0.75rem; }
+    .radio-group { display: flex; flex-direction: column; gap: 0.6rem; }
+    .radio-option { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1.1rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 2px; background: #fff; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .radio-option:hover { border-color: var(--gold); }
+    .radio-option input[type="radio"] { accent-color: var(--navy); width: 16px; height: 16px; flex-shrink: 0; }
+    .radio-option span { font-size: 0.88rem; color: var(--dark); font-weight: 400; }
+    .radio-option input[type="radio"]:checked + span { font-weight: 600; color: var(--navy); }
+    input[type="text"], input[type="email"], textarea, select {
+      width: 100%; padding: 0.9rem 1.1rem; border: 1px solid rgba(0,0,0,0.12); border-radius: 2px;
+      font-size: 0.9rem; font-family: 'Inter', sans-serif; color: var(--dark); background: #fff;
+      outline: none; transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus { border-color: var(--gold); }
+    textarea { resize: vertical; min-height: 100px; }
+    .divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 2.5rem 0; }
+    .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .submit-btn { width: 100%; background: var(--gold); color: var(--navy); padding: 1.1rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; margin-top: 1rem; }
+    .submit-btn:hover { background: #b8973d; }
+    .form-note { font-size: 0.75rem; color: var(--mid); text-align: center; margin-top: 1rem; font-weight: 300; }
+
+    /* SUCCESS */
+    .success-msg { display: none; text-align: center; padding: 3rem 2rem; }
+    .success-msg h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
+    .success-msg p { color: var(--mid); font-size: 0.95rem; line-height: 1.8; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .form-wrap { padding: 2.5rem 1.5rem 4rem; }
+      .name-row { grid-template-columns: 1fr; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Italian<span>ToBe</span></a>
+    <a href="index.html" class="nav-back">← Back to site</a>
+  </nav>
+
+  <div class="page-header">
+    <p>Interested in Working Together?</p>
+    <h1>Let's find the right fit <em>for your case.</em></h1>
+    <p class="sub">Every citizenship case is unique. Tell us about yours and we'll come back to you with a tailored quote — no pressure, no commitment.</p>
+  </div>
+
+  <div class="form-wrap">
+    <form id="quoteForm" action="https://formspree.io/f/xqenyrgd" method="POST">
+
+      <!-- Q1 -->
+      <div class="form-section">
+        <label>1. Which generation is your Italian ancestor?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="ancestor_generation" value="Parent" required/><span>Parent</span></label>
+          <label class="radio-option"><input type="radio" name="ancestor_generation" value="Grandparent"/><span>Grandparent</span></label>
+          <label class="radio-option"><input type="radio" name="ancestor_generation" value="Great-grandparent or further"/><span>Great-grandparent or further</span></label>
+          <label class="radio-option"><input type="radio" name="ancestor_generation" value="Not sure"/><span>Not sure</span></label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="form-section">
+        <label>2. Do you know if your Italian ancestor naturalized as a citizen of another country?</label>
+        <p class="hint">If they became, say, a US citizen before having children, this affects eligibility.</p>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="naturalization" value="Yes, before having children" required/><span>Yes — before having children</span></label>
+          <label class="radio-option"><input type="radio" name="naturalization" value="Yes, after having children"/><span>Yes — after having children</span></label>
+          <label class="radio-option"><input type="radio" name="naturalization" value="No, they never naturalized"/><span>No — they never naturalized</span></label>
+          <label class="radio-option"><input type="radio" name="naturalization" value="Not sure"/><span>Not sure</span></label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="form-section">
+        <label>3. Does the line of descent pass through a female ancestor born before 1948?</label>
+        <p class="hint">This is the "1948 rule" — it may require a court case in Italy.</p>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="rule_1948" value="Yes" required/><span>Yes</span></label>
+          <label class="radio-option"><input type="radio" name="rule_1948" value="No"/><span>No</span></label>
+          <label class="radio-option"><input type="radio" name="rule_1948" value="Not sure"/><span>Not sure</span></label>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="form-section">
+        <label>4. Where are you in the document gathering process?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="documents" value="Just starting — haven't gathered anything yet" required/><span>Just starting — haven't gathered anything yet</span></label>
+          <label class="radio-option"><input type="radio" name="documents" value="Have some documents but not all"/><span>Have some documents but not all</span></label>
+          <label class="radio-option"><input type="radio" name="documents" value="Most documents are ready"/><span>Most documents are ready</span></label>
+          <label class="radio-option"><input type="radio" name="documents" value="All documents gathered"/><span>All documents gathered</span></label>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="form-section">
+        <label>5. What's your timeline?</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="timeline" value="Just exploring for now" required/><span>Just exploring for now</span></label>
+          <label class="radio-option"><input type="radio" name="timeline" value="Within the next year"/><span>Within the next year</span></label>
+          <label class="radio-option"><input type="radio" name="timeline" value="As soon as possible"/><span>As soon as possible</span></label>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="form-section">
+        <label>6. Anything specific about your situation we should know?</label>
+        <textarea name="additional_info" placeholder="Tell us anything you think is relevant — the more context, the better we can help."></textarea>
+      </div>
+
+      <hr class="divider"/>
+
+      <!-- Contact -->
+      <div class="form-section">
+        <label>Your contact details</label>
+        <div class="name-row" style="margin-bottom:1rem;">
+          <input type="text" name="first_name" placeholder="First name" required/>
+          <input type="text" name="last_name" placeholder="Last name" required/>
+        </div>
+        <input type="email" name="email" placeholder="Email address" required/>
+      </div>
+
+      <input type="hidden" name="_subject" value="New Quote Request — ItalianToBe"/>
+
+      <button type="submit" class="submit-btn">Send My Quote Request</button>
+      <p class="form-note">We'll review your answers and get back to you within 1–2 business days with a tailored quote.</p>
+
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <h2>Grazie — we'll be in touch.</h2>
+      <p>We've received your request and will review your situation carefully. Expect to hear from us within 1–2 business days with a tailored quote.<br><br>In the meantime, if you haven't already, <a href="index.html#capture" style="color:var(--green);font-weight:600;">grab the free guide</a> — it'll give you a head start.</p>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">ItalianToBe</span>
+    <span class="footer-copy">© 2026 ItalianToBe · Naples, Italy</span>
+  </footer>
+
+  <script>
+    const form = document.getElementById('quoteForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      window.location.href = 'https://italiantobe.com/thank-you.html';
+    });
+  </script>
+
+</body>
+</html>
