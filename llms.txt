@@ -11,7 +11,7 @@ ItalianToBe is not a law firm. It is a consulting service that helps clients und
 - **DIY Audit (€780)** — Erik reviews your family tree and vital records, identifies your strongest citizenship pathway, and delivers a written report with a step-by-step action plan for self-filing.
 - **Tier 1: Guided Filing (€1,500–€2,000)** — Document preparation, translation coordination, consulate correspondence, and full guided support for standard jure sanguinis cases.
 - **Tier 2: Complex Cases (€2,500–€4,000)** — All of Tier 1 plus handling for 1948-rule cases, maternal line descent, or multi-generational complications.
-- **Tier 3: Full Service (€5,000–€7,000)** — Complete end-to-end management, including residency in Italy and direct courthouse filing (faster processing than consulate route).
+- **Tier 3: Court Case (€5,000–€7,000 + legal fees)** — For cases requiring Italian court proceedings, primarily the 1948-rule azione di stato (claims descending through a female ancestor who gave birth before 1948). Erik coordinates the case with Italian legal counsel, whose fees are separate. This is litigation, not an administrative filing, and typically takes longer than a standard case.
 
 ## Guides and Articles
 
@@ -23,7 +23,7 @@ ItalianToBe is not a law firm. It is a consulting service that helps clients und
 
 - **Jure sanguinis** — Italian citizenship passed through bloodline from Italian-born ancestors who emigrated before naturalising as citizens of another country.
 - **The 1948 rule** — Before 1948, Italian women could not pass citizenship to children. Cases where descent passes through a female ancestor before January 1, 1948 require a civil court case in Italy but are winnable.
-- **Consulate vs. courthouse filing** — Applying through an Italian consulate in your home country (slower, backlogs of 2–10+ years) vs. filing directly at an Italian courthouse while residing in Italy (often 1–2 years).
+- **Consulate vs. comune filing** — Applying through an Italian consulate in your home country (no travel required, but backlogs of 2–10+ years in high-demand posts) vs. establishing residency in Italy and filing directly with the comune (usually decided far faster, but requires living in Italy for roughly 4–12 months and a lawful basis to be there). Comune filing is an administrative process, not a court proceeding — it should not be confused with the 1948-rule court case.
 - **Document requirements** — Birth, marriage, and death certificates for every generation back to the Italian-born ancestor; apostille authentication; certified translation into Italian.
 - **Eligible nationalities** — Primarily Americans, but Australians, Canadians, Argentinians, Brazilians, and others with Italian ancestry are commonly served.
 
