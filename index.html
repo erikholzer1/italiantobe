@@ -250,7 +250,7 @@
 
     /* PACKAGES */
     .packages { background: #fff; }
-    .packages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .packages-grid { display: grid; grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; gap: 1.5rem; }
     .pkg-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; padding: 2.5rem; display: flex; flex-direction: column; transition: box-shadow 0.25s, transform 0.25s; position: relative; }
     .pkg-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.08); transform: translateY(-4px); }
     .pkg-card.featured { border: 2px solid var(--gold); }
@@ -687,7 +687,8 @@
     <!-- THREE TIERS -->
     <div class="packages-grid">
 
-      <div class="pkg-card">
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Cases</div>
         <div class="pkg-icon">📂</div>
         <h3>Tier 1 — Standard</h3>
         <div class="pkg-price">€1,500–€2,000 <span>flat fee</span></div>
@@ -702,51 +703,14 @@
           <li>Direct WhatsApp and email access throughout</li>
         </ul>
         <p style="font-size:0.75rem;color:var(--mid);margin-top:auto;margin-bottom:1rem;line-height:1.55;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.05);"><strong style="color:var(--dark);">€1,500</strong> — parent is Italian ancestor, single comune, records accessible.<br><strong style="color:var(--dark);">€2,000</strong> — grandparent is ancestor, multiple comuni, more generations of records.</p>
-        <a href="quote.html" class="btn-navy">Get Your Custom Quote</a>
-      </div>
-
-      <div class="pkg-card featured">
-        <div class="pkg-badge">Most Cases</div>
-        <div class="pkg-icon">🔎</div>
-        <h3>Tier 2 — Complex</h3>
-        <div class="pkg-price">€2,500–€4,000 <span>flat fee</span></div>
-
-        <p class="pkg-desc">For cases with meaningful complications — but that stay out of court. One or more factors require deeper analysis, legal consultation, or significant additional work.</p>
-        <ul class="pkg-list">
-          <li>Everything in Tier 1</li>
-          <li>Minor issue analysis and risk assessment</li>
-          <li>Law 74/2025 grey area navigation</li>
-          <li>Borderline cases requiring legal opinion</li>
-          <li>Difficult or missing record strategies</li>
-          <li>Extended comune correspondence management</li>
-          <li>Legal consultation included where needed</li>
-        </ul>
-        <p style="font-size:0.75rem;color:var(--mid);margin-top:auto;margin-bottom:1rem;line-height:1.55;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.05);"><strong style="color:var(--dark);">€2,500</strong> — one complicating factor, low-risk minor issue, difficult but findable records.<br><strong style="color:var(--dark);">€4,000</strong> — multiple complications, borderline minor issue, ambiguous dates or damaged records.</p>
         <a href="quote.html" class="btn-gold-solid">Get Your Custom Quote</a>
-      </div>
-
-      <div class="pkg-card">
-        <div class="pkg-icon">⚖️</div>
-        <h3>Tier 3 — Court Case</h3>
-        <div class="pkg-price">€5,000–€7,000 <span>flat fee + legal fees</span></div>
-        <p class="pkg-desc">For cases requiring Italian court proceedings — primarily the 1948 rule azione di stato. We coordinate everything including Italian legal counsel. Legal fees are separate and disclosed upfront.</p>
-        <ul class="pkg-list">
-          <li>Everything in Tier 2</li>
-          <li>1948 rule azione di stato coordination</li>
-          <li>Italian legal counsel engagement</li>
-          <li>Court filing and case monitoring</li>
-          <li>Annual continuity fee for long-running cases</li>
-          <li>Full case management through to judgment</li>
-        </ul>
-        <p style="font-size:0.75rem;color:var(--mid);margin-top:auto;margin-bottom:1rem;line-height:1.55;padding-top:1rem;border-top:1px solid rgba(0,0,0,0.05);"><strong style="color:var(--dark);">€5,000</strong> — clear-cut 1948 case, strong records, established precedent applies.<br><strong style="color:var(--dark);">€7,000</strong> — multiple legal issues combined, weak records, or complex proceedings.</p>
-        <a href="quote.html" class="btn-navy">Get Your Custom Quote</a>
       </div>
 
     </div>
 
-    <!-- FREE ELIGIBILITY CALL -->
-    <div style="text-align:center;padding:1.8rem 2rem;margin-top:0.5rem;">
-      <p style="font-size:0.85rem;color:var(--mid);font-weight:300;">Not sure which tier fits your situation? <a href="quote.html" style="color:var(--navy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">Get your custom quote</a> and we'll figure it out together.</p>
+    <!-- COMPLEX CASE DISCLAIMER -->
+    <div style="text-align:center;padding:1.8rem 2rem;margin-top:0.5rem;max-width:640px;margin-left:auto;margin-right:auto;">
+      <p style="font-size:0.85rem;color:var(--mid);font-weight:300;line-height:1.7;">Have a more complex case — a 1948 rule court claim, a minor issue complication, or records that are missing or hard to trace? Those don't fit a standard flat fee. <a href="quote.html" style="color:var(--navy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">Get your custom quote</a> and we'll tell you honestly what it would take.</p>
     </div>
 
     <!-- DOCUMENT RETRIEVAL ADD-ON -->
