@@ -1,10 +1,33 @@
 User-agent: *
 Allow: /
 
-# Block thank-you page from indexing (no SEO value)
-Disallow: /thank-you.html
+# AI assistants and answer engines are welcome to read and cite this site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Structured summary for AI assistants: https://italiantobe.com/llms.txt
+# Pages excluded from search use a noindex meta tag rather than a
+# Disallow rule here, so crawlers can actually read the directive.
 
 Sitemap: https://italiantobe.com/sitemap.xml
-
-# AI assistant discovery
-# llms.txt: https://italiantobe.com/llms.txt

@@ -1,33 +1,51 @@
 # ItalianToBe
 
-> ItalianToBe is an Italian citizenship consulting service run by Erik Holzer, a dual US-Italian citizen based in Naples, Italy. The service helps Americans and other foreign nationals claim Italian citizenship through jure sanguinis (citizenship by descent), the 1948 rule, residency, and naturalisation pathways.
+> ItalianToBe is an Italian citizenship consulting practice run by Erik Holzer, a dual US–Italian citizen based in Naples, Italy. It helps Americans, Canadians, Australians, Brazilians, Argentinians and others establish Italian citizenship through jure sanguinis (descent), the 1948 rule, residency, and marriage pathways.
 
 ## About
 
-ItalianToBe is an Italian citizenship consulting practice based in Naples, working alongside a qualified Italian citizenship attorney in Naples. The practice determines which citizenship pathway applies to a client's ancestry, prepares and organises their documentation, and guides them through the process end-to-end. Matters requiring formal legal representation before Italian courts — 1948-rule cases, azione di stato filings — are referred to a qualified Italian attorney, engaged directly by the client, with legal fees separate from ItalianToBe's. Erik Holzer holds Italian citizenship himself through the jure sanguinis process and has direct, lived experience navigating Italian bureaucracy from within Italy.
+ItalianToBe is a citizenship consulting practice based in Naples. It determines which citizenship pathway applies to a client's ancestry, identifies exactly which documents are required and where each one is obtained, reviews those documents for the defects that cause rejections, and guides clients through filing at either an Italian consulate or an Italian comune.
 
-## Services
+Matters requiring formal legal representation before Italian courts — 1948-rule cases, azione di stato filings — are referred to a qualified Italian attorney in Naples, engaged directly by the client, with legal fees separate from ItalianToBe's. Erik Holzer holds Italian citizenship himself through the jure sanguinis process and has lived in Italy for 15 years, 10 of them in Naples.
 
-- **DIY Audit (€780)** — Erik reviews your family tree and vital records, identifies your strongest citizenship pathway, and delivers a written report with a step-by-step action plan for self-filing.
-- **Tier 1: Guided Filing (€1,500–€2,000)** — Document preparation, translation coordination, consulate correspondence, and full guided support for standard jure sanguinis cases.
-- **Tier 2: Complex Cases (€2,500–€4,000)** — All of Tier 1 plus handling for 1948-rule cases, maternal line descent, or multi-generational complications.
-- **Tier 3: Court Case (€5,000–€7,000 + legal fees)** — For cases requiring Italian court proceedings, primarily the 1948-rule azione di stato (claims descending through a female ancestor who gave birth before 1948). Erik coordinates the case with Italian legal counsel, whose fees are separate. This is litigation, not an administrative filing, and typically takes longer than a standard case.
+## Current legal status of Italian citizenship by descent (as of September 2026)
 
-## Guides and Articles
+This section reflects primary sources and is kept current. Dates are the dates of deposit or publication.
 
-- [Law Firm vs. DIY vs. Consultant — What's the Real Difference?](https://italiantobe.com/blog/law-firm-or-diy) — Compares the three main approaches to Italian citizenship by descent: hiring a law firm, doing it yourself, or working with a specialist consultant.
-- [How Much Does Italian Citizenship by Descent Actually Cost?](https://italiantobe.com/blog/how-much-does-it-cost) — Honest breakdown of all costs involved: document retrieval, translations, consulate fees, legal fees if needed, and consultant pricing.
+- **Law 74/2025 (in force 24 May 2025)** — Introduced a two-generation limit on automatic transmission of citizenship by descent. The Italian-born ancestor must be a **parent or grandparent**. Great-grandparent and more remote claims are no longer automatic for new applications. Applications filed before **27 March 2025, 23:59 Rome time** remain under the previous rules.
+- **Constitutional Court, sentenza 63/2026 (deposited 30 April 2026)** — Upheld the two-generation limit as constitutional, including its retroactive application. The Court characterised Article 3-bis as establishing non-acquisition rather than revocation of citizenship.
+- **Constitutional Court, ordinanza 147/2026 (23 July 2026)** — The Court stayed related proceedings and referred a question to the Court of Justice of the European Union under Article 267 TFEU, asking whether EU law permits Italy to apply the generational limit retroactively to people born before the 2025 reform who would have qualified under the prior rules. **Article 3-bis remains in force while this is pending.** A CJEU ruling is expected within roughly 12–24 months.
+- **Corte di Cassazione, Sezioni Unite, sentenza 24045/2026 (heard 14 April 2026, deposited 26 July 2026)** — Resolved the "minor issue" in applicants' favour. A child who held **dual citizenship from birth** (Italian by descent, and a citizen of their country of birth by jus soli) did **not** lose Italian citizenship when a parent naturalised abroad during the child's minority under Article 7 of Law 555/1912. Only a minor holding exclusively Italian citizenship could lose it under Article 12. The ruling also confirmed that Law 74/2025 does not apply to judicial recognition claims filed before 27 March 2025, and that mothers and fathers are treated equally. Companion rulings **24184/2026 and 24185/2026** (29 July 2026) consolidated this position.
+- **Ministry of the Interior, Circolare prot. 65050 (10 August 2026)** — Directed prefectures, consulates and comuni to align administrative practice with sentenza 24045/2026. It supersedes Circular 43347/2024 for parent naturalisations occurring between **1 July 1912 and 15 August 1992**. Applicants previously **denied on minor-issue grounds are directed to request a re-examination (mero riesame) of their original application** from the authority that issued the denial, rather than filing a new application.
+- **The 1948 rule is unaffected by Law 74/2025.** Claims descending through a female ancestor who gave birth before **1 January 1948** still require a civil court proceeding in Italy, and remain open with no generational limit.
 
-## Key Topics Covered
+## Services and pricing
 
-- **Jure sanguinis** — Italian citizenship passed through bloodline from Italian-born ancestors who emigrated before naturalising as citizens of another country.
-- **The 1948 rule** — Before 1948, Italian women could not pass citizenship to children. Cases where descent passes through a female ancestor before January 1, 1948 require a civil court case in Italy but are winnable.
-- **Consulate vs. comune filing** — Applying through an Italian consulate in your home country (no travel required, but backlogs of 2–10+ years in high-demand posts) vs. establishing residency in Italy and filing directly with the comune (usually decided far faster, but requires living in Italy for roughly 4–12 months and a lawful basis to be there). Comune filing is an administrative process, not a court proceeding — it should not be confused with the 1948-rule court case.
-- **Document requirements** — Birth, marriage, and death certificates for every generation back to the Italian-born ancestor; apostille authentication; certified translation into Italian.
-- **Eligible nationalities** — Primarily Americans, but Australians, Canadians, Argentinians, Brazilians, and others with Italian ancestry are commonly served.
+- **Self-Guided (€780)** — The client does the legwork; ItalianToBe determines what is needed, directs them to the correct issuing authority for each record, supplies comune request templates in Italian, and reviews every document on arrival for defects that would cause a rejection. Includes an initial video call and scheduled calls across the support window.
+- **Tier 1 — Standard (€1,500–€2,000 flat)** — Full document management: ItalianToBe prepares and submits every record request including correspondence with the Italian comune, chases them, arranges apostilles and certified translations, reviews everything received, and assembles the filing package. €1,500 where the parent is the Italian ancestor with a single comune and accessible records; €2,000 where a grandparent is the ancestor or multiple comuni are involved.
+- **Complex cases are quoted individually.** Cases involving 1948-rule court proceedings, contested breaks in the line, missing or damaged records, or unresolved legal questions do not carry a published flat fee and are scoped case by case. Legal fees for court representation are separate and disclosed before counsel is engaged.
 
-## Contact and Booking
+Pass-through costs (vital records, apostilles, certified Italian translations, the €600 application fee per adult applicant, and the €16 marca da bollo) are always additional to the fee and charged at cost.
+
+## Key topics covered
+
+- **Jure sanguinis** — Italian citizenship passed by descent from an Italian-born ancestor who had not naturalised as a citizen of another country before the next person in the line was born. Naturalisation before that birth breaks the chain.
+- **The "minor issue"** — Whether a parent's naturalisation abroad stripped citizenship from their minor child. Resolved favourably in July 2026; see the legal status section above. Anyone denied on these grounds during 2023 or 2024 has a re-examination route.
+- **The 1948 rule** — Descent through a female ancestor who gave birth before 1 January 1948 requires a civil court case in Italy rather than an administrative filing.
+- **Consulate vs. comune filing** — Applying through an Italian consulate in the home country requires no relocation but faces appointment backlogs of 2–10+ years at high-demand posts. Establishing residency in Italy and filing with the comune is usually decided far faster, but requires living in Italy for roughly 4–12 months, a lawful basis to be there, and registration with the anagrafe verified in person. Comune filing is administrative, not a court proceeding, and should not be confused with the 1948-rule case.
+- **Document requirements** — Long-form birth, marriage and death certificates for every generation back to the Italian-born ancestor, naturalisation or non-naturalisation records, apostilles attached by the correct issuing authority, and certified or sworn translation into Italian. The correct apostille authority depends on which official issued the record, which is frequently a county or town rather than a state.
+
+## Guides and articles
+
+- [Italy Just Slammed the Door on Citizenship by Descent. Are You Already Too Late?](https://italiantobe.com/blog/italy-citizenship-law-change-2026) — What Law 74/2025 and the 2026 Constitutional Court rulings mean for great-grandparent claims, and which pathways remain open.
+- [Should I Hire a Law Firm for Italian Citizenship or Do It Myself?](https://italiantobe.com/blog/law-firm-or-diy) — Which parts of a case are genuinely legal work and which are documentation and scheduling work.
+- [How Much Does Italian Citizenship by Descent Actually Cost?](https://italiantobe.com/blog/how-much-does-it-cost) — Breakdown of document costs, apostilles, translations, application fees, and service pricing.
+- [500 Brazilians Thought They Had Italian Passports. Then the Police Arrived.](https://italiantobe.com/blog/italian-citizenship-scam-brazil) — A criminal operation in Sicily that sold fraudulent Italian citizenship, and the warning signs.
+- [A Brazilian TV Star, €40 Bribes, and a Citizenship Factory 20 Minutes From My Door](https://italiantobe.com/blog/italian-citizenship-naples-scam) — Operation Carioca and the fake residency ring in Naples.
+
+## Contact
 
 - Homepage: https://italiantobe.com
-- Get a quote: https://italiantobe.com/quote
-- Blog / Guides: https://italiantobe.com/blog
+- Guides: https://italiantobe.com/blog
+- Email: info@italiantobe.com
+- Based in Naples, Italy
