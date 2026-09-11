@@ -332,7 +332,7 @@
     .assess-note { font-size: 0.78rem; color: var(--mid); margin: 1rem 0 2rem; }
     @media (max-width: 768px) { .assess { padding: 3rem 1.5rem; } }
     #capture { scroll-margin-top: 90px; }
-#guide-form { scroll-margin-top: 100px; }
+#guide-form { scroll-margin-top: 100px; min-height: 460px; }
 .capture { background: var(--green); padding: 5rem 4rem; }
     .capture-inner { max-width: 620px; margin: 0 auto; text-align: center; }
     .capture .section-tag { color: rgba(255,255,255,0.55); }
@@ -1009,49 +1009,12 @@
   </script>
 
   <!--
-    The free-guide signup is a third-party embed that sets its own height after
-    it loads. A plain anchor jump is computed against the layout as it was
-    BEFORE that happens, so the form can slide out from under the visitor.
-
-    This is strictly additive: the native anchor jump is never intercepted, so
-    if anything here fails the link still works exactly as it does now. All this
-    does is nudge the page back onto the form once the embed has settled.
+    #guide-form reserves min-height (see CSS) so the anchor target is never
+    zero-height while the third-party embed loads. An earlier version tried to
+    correct for this after the fact with a ResizeObserver, but that landed the
+    scroll position on the About section (immediately below capture in the
+    DOM) whenever it fired mid-transition. Reserving the space up front avoids
+    the drift instead of chasing it.
   -->
-  <script>
-  (function () {
-    var target = document.getElementById('guide-form');
-    if (!target || typeof ResizeObserver !== 'function') return;
-
-    var watching = false;
-
-    function realign() {
-      // Only if the visitor actually asked for the form and it has drifted.
-      if (location.hash !== '#guide-form') return;
-      var nav = document.querySelector('nav');
-      var navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
-      var top = target.getBoundingClientRect().top;
-      if (Math.abs(top - navBottom) < 24) return; // already about right
-      try { target.scrollIntoView({ block: 'start' }); } catch (e) {}
-    }
-
-    function watch() {
-      if (watching) return;
-      watching = true;
-      var last = -1, steady = 0;
-      var ro = new ResizeObserver(function () {
-        var h = target.getBoundingClientRect().height;
-        if (h === last) { steady++; } else { steady = 0; last = h; realign(); }
-        if (steady > 2) { ro.disconnect(); watching = false; }
-      });
-      ro.observe(target);
-      setTimeout(function () { ro.disconnect(); watching = false; }, 4000);
-    }
-
-    document.querySelectorAll('a[href="#guide-form"]').forEach(function (a) {
-      a.addEventListener('click', watch); // native jump still runs
-    });
-    if (location.hash === '#guide-form') window.addEventListener('load', watch);
-  })();
-  </script>
 </body>
 </html>
