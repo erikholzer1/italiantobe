@@ -319,9 +319,7 @@
     .btn-gold-solid:hover { background: #b8973d; }
 
     /* EMAIL CAPTURE */
-    /* Sticky nav is ~69px: without this the anchor jump hides the target beneath it.
-   #guide-form is the embedded signup, so "Get the Free Guide" lands on the
-   name and email fields rather than on the heading above them. */
+    /* Sticky nav is ~69px: without this the anchor jump hides the target beneath it. */
 #assess { scroll-margin-top: 90px; }
     .assess { background: var(--cream); padding: 4.5rem 4rem; }
     .assess-inner { max-width: 900px; margin: 0 auto; }
@@ -332,7 +330,6 @@
     .assess-note { font-size: 0.78rem; color: var(--mid); margin: 1rem 0 2rem; }
     @media (max-width: 768px) { .assess { padding: 3rem 1.5rem; } }
     #capture { scroll-margin-top: 90px; }
-#guide-form { scroll-margin-top: 100px; min-height: 460px; }
 .capture { background: var(--green); padding: 5rem 4rem; }
     .capture-inner { max-width: 620px; margin: 0 auto; text-align: center; }
     .capture .section-tag { color: rgba(255,255,255,0.55); }
@@ -525,7 +522,7 @@
       <li><a href="#packages">Packages</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="#guide-form">Free Guide</a></li>
+      <li><a href="guide.html">Free Guide</a></li>
       <li><a href="#contact" class="nav-cta">Book a Call</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -539,9 +536,9 @@
       <li><a href="#packages" onclick="closeMobileMenu()">Packages</a></li>
       <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
       <li><a href="#news" onclick="closeMobileMenu()">News</a></li>
-      <li><a href="#guide-form" onclick="closeMobileMenu()">Free Guide</a></li>
+      <li><a href="guide.html" onclick="closeMobileMenu()">Free Guide</a></li>
       <li><a href="#book" onclick="closeMobileMenu()">Book a Free Call</a></li>
-      <li><a href="#guide-form" onclick="closeMobileMenu()">Get the Free Guide</a></li>
+      <li><a href="guide.html" onclick="closeMobileMenu()">Get the Free Guide</a></li>
     </ul>
   </div>
 
@@ -553,7 +550,7 @@
         <h1>To be Italian,<br>or <em>not to be.</em></h1>
         <p>We explore every path your bloodline opens: jure sanguinis, the 1948 rule, residency, marriage. If there's a way to your Italian passport, we find it.</p>
         <div class="hero-btns">
-          <a href="#guide-form" class="btn-gold">Get the Free Guide</a>
+          <a href="guide.html" class="btn-gold">Get the Free Guide</a>
           <a href="#book" class="btn-outline-white">Book a Consultation</a>
         </div>
       </div>
@@ -594,7 +591,7 @@
 
       <div class="assess-cta">
         <a href="https://app.italiantobe.com/" class="btn-gold">Start Your Assessment</a>
-        <a href="#guide-form" class="btn-navy">Or get the free guide first</a>
+        <a href="guide.html" class="btn-navy">Or get the free guide first</a>
       </div>
       <p class="assess-note">
         A preliminary assessment based on the information you provide, not a legal
@@ -818,7 +815,7 @@
       <p class="section-tag">Free Resource</p>
       <h2>"Do I qualify?"</h2>
       <p>Download the free Italian citizenship qualification guide. We walk you through the key eligibility questions, the most common disqualifiers, and exactly what to research next. At no cost.</p>
-      <div id="guide-form" data-reach-form="eb29f2b4-dca9-4cd9-a728-251db3108b0d"></div>
+      <a href="guide.html" class="btn-gold" style="display:inline-block;margin-top:.5rem;">Get the Free Guide</a>
     </div>
   </section>
 
@@ -978,7 +975,7 @@
       <p>Start with the free guide, or take the Eligibility Check. A free 10-minute call is there once you have your results.</p>
     </div>
     <div class="cta-btns">
-      <a href="#guide-form" class="btn-gold">Get the Free Guide</a>
+      <a href="guide.html" class="btn-gold">Get the Free Guide</a>
       <a href="https://app.italiantobe.com/" class="btn-outline-white" style="text-align:center;">Start Your Assessment</a>
     </div>
   </div>
@@ -997,7 +994,6 @@
     </nav>
   </footer>
 
-  <script src="https://cdn-reach.hostinger.com/js/embed.js"></script>
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -1009,13 +1005,5 @@
     }
   </script>
 
-  <!--
-    #guide-form reserves min-height (see CSS) so the anchor target is never
-    zero-height while the third-party embed loads. An earlier version tried to
-    correct for this after the fact with a ResizeObserver, but that landed the
-    scroll position on the About section (immediately below capture in the
-    DOM) whenever it fired mid-transition. Reserving the space up front avoids
-    the drift instead of chasing it.
-  -->
 </body>
 </html>
