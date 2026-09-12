@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="apple-touch-icon" href="/logo.png"/>
+  <title>Do It Yourself — With Expert Support | ItalianToBe</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A2744;
+      --gold: #c9a84c;
+      --green: #2D6A4F;
+      --dark: #1a1a1a;
+      --mid: #6b7280;
+      --light: #f8f7f4;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+
+    nav { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(26,39,68,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
+    .nav-logo span { color: rgba(255,255,255,0.55); font-style: italic; }
+    .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    .page-header { background: var(--navy); padding: 4rem 2rem 3rem; text-align: center; }
+    .page-header p { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: #fff; line-height: 1.2; margin-bottom: 1rem; }
+    .page-header .price { font-size: 1.3rem; color: var(--gold); font-weight: 600; margin-bottom: .75rem; }
+    .page-header .sub { color: rgba(255,255,255,0.55); font-size: 0.92rem; font-weight: 300; max-width: 480px; margin: 0 auto; line-height: 1.8; }
+
+    .wrap { max-width: 520px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+    .card { background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 4px; padding: 2rem; }
+    .card ul { margin: 0 0 1.5rem 1.1rem; }
+    .card li { font-size: 0.88rem; color: var(--dark); margin-bottom: .5rem; line-height: 1.5; }
+
+    .check-row { display: flex; align-items: flex-start; gap: 0.6rem; margin: 0 0 1.4rem; }
+    .check-row input { margin-top: 0.2rem; accent-color: var(--navy); }
+    .check-row span { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+    .continue-btn { width: 100%; background: var(--gold); color: var(--navy); padding: 1.1rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
+    .continue-btn:hover { background: #b8973d; }
+    .continue-btn:disabled { opacity: 0.55; cursor: default; }
+    .form-error { display: none; font-size: 0.82rem; color: #b91c1c; margin-bottom: 1rem; }
+
+    #checkout-mount { margin-top: 1rem; }
+
+    footer { background: var(--navy); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .wrap { padding: 2.5rem 1.5rem 4rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Italian<span>ToBe</span></a>
+    <a href="index.html" class="nav-back">← Back to site</a>
+  </nav>
+
+  <div class="page-header">
+    <p>Self-Guided Option</p>
+    <h1>Do It Yourself — <em>With Expert Support</em></h1>
+    <p class="price">€780, 3-month package</p>
+    <p class="sub">You do the legwork. We make sure you are doing it right, and stay in your corner to guide, review, and course-correct along the way.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <ul>
+        <li>WhatsApp messaging support</li>
+        <li>1 initial video call, 30 minutes</li>
+        <li>2 audio calls per month, 15 minutes each</li>
+        <li>Document review and feedback</li>
+        <li>Comune request templates in Italian</li>
+      </ul>
+
+      <div id="preCheckout">
+        <div class="form-error" id="formError"></div>
+        <label class="check-row">
+          <input type="checkbox" id="consentBox"/>
+          <span>I understand this package is delivered as ongoing support over 3 months and that <strong>all sales are final</strong>. No refunds.</span>
+        </label>
+        <button class="continue-btn" id="continueBtn" disabled>Continue to payment</button>
+      </div>
+
+      <div id="checkout-mount"></div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">ItalianToBe</span>
+    <span class="footer-copy">© 2026 ItalianToBe · Naples, Italy</span>
+  </footer>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const STRIPE_PUBLISHABLE_KEY = "pk_live_51UETJ1DagmDMc0JPoiCHQaBwiMmziwrh2KgMg2V9ttvn5UwFUCVJzxj6K0ea2eFJ4FMBZE1Et8HP7Fq6hmUZrIIr00z0J8vglv";
+
+    const consentBox = document.getElementById('consentBox');
+    const continueBtn = document.getElementById('continueBtn');
+    const errorBox = document.getElementById('formError');
+    const preCheckout = document.getElementById('preCheckout');
+
+    consentBox.addEventListener('change', function () {
+      continueBtn.disabled = !consentBox.checked;
+    });
+
+    continueBtn.addEventListener('click', async function () {
+      errorBox.style.display = 'none';
+      continueBtn.disabled = true;
+      continueBtn.textContent = 'Loading payment form…';
+
+      let res, json;
+      try {
+        res = await fetch('https://app.italiantobe.com/api/checkout/diy', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ consent: true }),
+        });
+        json = await res.json();
+      } catch {
+        showError('Could not start checkout. Check your connection and try again.');
+        return;
+      }
+
+      if (!res.ok || !json.clientSecret) {
+        showError(json.error || 'Could not start checkout just now.');
+        return;
+      }
+
+      const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+      const checkout = await stripe.initEmbeddedCheckout({ clientSecret: json.clientSecret });
+      preCheckout.style.display = 'none';
+      checkout.mount('#checkout-mount');
+    });
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.style.display = 'block';
+      continueBtn.disabled = false;
+      continueBtn.textContent = 'Continue to payment';
+    }
+  </script>
+
+</body>
+</html>
