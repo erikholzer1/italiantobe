@@ -236,21 +236,31 @@
     .mobile-menu ul li:last-child a { border-bottom: none; color: var(--gold); font-weight: 600; padding-top: 1.2rem; }
 
     /* HERO — full-bleed photo, not a boxed side image, so a landscape shot
-       never has to be force-cropped into a narrow portrait frame again. */
+       never has to be force-cropped into a narrow portrait frame again.
+       A handful of stacked, absolutely-positioned slides crossfade on a
+       timer (see the script near the bottom of the page); .hero itself
+       just needs a plain dark fallback in case JS is off. */
     .hero {
       min-height: 92vh;
-      background: url('lake-como-pool.jpg') center 58% / cover no-repeat;
+      background: var(--charcoal);
       display: flex; align-items: center;
       position: relative; overflow: hidden;
     }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center 58%; background-repeat: no-repeat;
+      opacity: 0; transition: opacity 1.6s ease;
+    }
+    .hero-slide.active { opacity: 1; }
     .hero::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(180deg, rgba(17,24,39,0.62) 0%, rgba(17,24,39,0.22) 42%, rgba(17,24,39,0.7) 100%);
     }
     .hero::after {
       content: '';
-      position: absolute; left: 0; top: 0; bottom: 0; width: 5px; z-index: 1;
+      position: absolute; left: 0; top: 0; bottom: 0; width: 5px; z-index: 2;
       background: linear-gradient(to bottom, #009246 33%, #ffffff 33%, #ffffff 66%, #CE2B37 66%);
     }
     .hero-content { position: relative; z-index: 2; width: 100%; padding: 4rem 4rem 4rem 5rem; }
@@ -581,6 +591,12 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="background-image:url('umbria-garden.jpeg');"></div>
+      <div class="hero-slide" style="background-image:url('lake-como-pool.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('sardegna.jpeg');"></div>
+      <div class="hero-slide" style="background-image:url('red-vespa-lady.jpg');"></div>
+    </div>
     <div class="hero-content">
       <div class="hero-text">
         <span class="hero-eyebrow">Italian Citizenship by Descent</span>
@@ -1027,8 +1043,8 @@
   <!-- PHOTO BANNER: UMBRIA -->
   <div class="photo-banner" style="background-image: url('umbria-garden.jpeg');">
     <div class="photo-banner-inner">
-      <p class="section-tag tag-flanked">Naples, Italy</p>
-      <h2>Somewhere in Italy, a table is already set. <em>The only question is when you sit down at it.</em></h2>
+      <p class="section-tag tag-flanked">Coming Home</p>
+      <h2>Your family didn't leave Italy behind. <em>It has been waiting for you to come back.</em></h2>
     </div>
   </div>
 
@@ -1066,6 +1082,17 @@
     });
     function closeMobileMenu() {
       mobileMenu.classList.remove('open');
+    }
+
+    // Hero photo rotation: crossfade to the next slide every 4.5s.
+    const heroSlides = document.querySelectorAll('#heroSlides .hero-slide');
+    if (heroSlides.length > 1) {
+      let heroIndex = 0;
+      setInterval(() => {
+        heroSlides[heroIndex].classList.remove('active');
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        heroSlides[heroIndex].classList.add('active');
+      }, 4500);
     }
   </script>
 
