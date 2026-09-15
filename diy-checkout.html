@@ -71,13 +71,14 @@
   <div class="page-header">
     <p>Self-Guided Option</p>
     <h1>Do It Yourself — <em>With Expert Support</em></h1>
-    <p class="price" id="headerPrice">From €780, 3-month package</p>
+    <p class="price" id="headerPrice">From €780</p>
     <p class="sub">You do the legwork. We make sure you are doing it right, and stay in your corner to guide, review, and course-correct along the way.</p>
   </div>
 
   <div class="wrap">
     <div class="card">
       <ul>
+        <li>Up to 3 months of support</li>
         <li>WhatsApp messaging support</li>
         <li>1 initial video call, 30 minutes</li>
         <li>2 audio calls per month, 15 minutes each</li>
@@ -139,7 +140,7 @@
 
     function updatePriceDisplay() {
       const price = PRICES[selectedGeneration()];
-      headerPrice.textContent = '€' + price + ', 3-month package';
+      headerPrice.textContent = '€' + price;
       continueBtn.textContent = 'Continue to payment, €' + price;
     }
 
