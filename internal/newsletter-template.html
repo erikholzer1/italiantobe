@@ -1,0 +1,256 @@
+<title>Newsletter Template</title>
+<style>
+  :root {
+    --navy: #1A2744;
+    --navy-2: #223257;
+    --gold: #c9a84c;
+    --gold-dim: #a8863a;
+    --green: #2D6A4F;
+    --ink: #1a1a1a;
+    --mid: #6b7280;
+    --line: rgba(26,39,68,0.12);
+    --paper: #f8f7f4;
+    --card: #ffffff;
+    --tag-bg: rgba(201,168,76,0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #eae7de;
+      --mid: #a3a8b8;
+      --line: rgba(234,231,222,0.14);
+      --paper: #141c30;
+      --card: #1b2540;
+      --tag-bg: rgba(201,168,76,0.16);
+      --navy-2: #a8863a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #eae7de;
+    --mid: #a3a8b8;
+    --line: rgba(234,231,222,0.14);
+    --paper: #141c30;
+    --card: #1b2540;
+    --tag-bg: rgba(201,168,76,0.16);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    margin: 0;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; text-wrap: balance; color: var(--ink); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
+
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: .6rem; }
+  .brand { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold-dim); letter-spacing: .01em; }
+  .brand em { font-style: italic; color: var(--mid); }
+  .kicker {
+    font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  h1.title { font-size: clamp(2rem, 4vw, 2.7rem); margin: .5rem 0 .3rem; font-weight: 600; }
+  .dek { color: var(--mid); font-size: 1.02rem; max-width: 62ch; margin-bottom: 2.6rem; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.8rem 2rem;
+  }
+
+  /* ---- anatomy ---- */
+  .anatomy { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; margin: 2.4rem 0 3.6rem; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .anatomy-email {
+    background: var(--card);
+    padding: 2.2rem 2.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: .93rem;
+    border-right: 1px solid var(--line);
+  }
+  .anatomy-email .subj { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 1.3rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--line); }
+  .anatomy-email .subj .label { display: block; font-family: 'Inter', sans-serif; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .35rem; font-weight: 700; }
+  .block { position: relative; padding: .9rem 0 .9rem 1rem; border-left: 3px solid transparent; margin-bottom: .2rem; }
+  .block.on { border-left-color: var(--gold); background: var(--tag-bg); border-radius: 0 4px 4px 0; }
+  .block p { margin: 0; color: var(--ink); }
+  .block .ghost { color: var(--mid); font-style: italic; }
+  .anatomy-notes { padding: 2.2rem 2.4rem; background: var(--paper); }
+  .anatomy-notes .note { padding: .9rem 0; border-bottom: 1px solid var(--line); }
+  .anatomy-notes .note:last-child { border-bottom: none; }
+  .anatomy-notes .note h4 { font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 700; letter-spacing: .02em; margin: 0 0 .3rem; color: var(--navy-2); }
+  .anatomy-notes .note p { margin: 0; font-size: .87rem; color: var(--mid); }
+
+  @media (max-width: 760px) {
+    .anatomy { grid-template-columns: 1fr; }
+    .anatomy-email { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+
+  section.doc { margin-bottom: 3.2rem; }
+  section.doc > .kicker { display: block; margin-bottom: .5rem; }
+  section.doc h2 { font-size: 1.5rem; margin: 0 0 .9rem; }
+
+  /* ---- worked example, rendered like a real received email ---- */
+  .envelope { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--card); }
+  .envelope .meta { padding: 1.1rem 1.6rem; border-bottom: 1px solid var(--line); font-size: .82rem; color: var(--mid); display: flex; flex-direction: column; gap: .25rem; }
+  .envelope .meta b { color: var(--ink); font-weight: 600; }
+  .envelope .body { padding: 2rem 2.2rem 2.4rem; font-size: .95rem; white-space: pre-wrap; font-family: 'Inter', sans-serif; }
+  .envelope .body .sig { color: var(--mid); }
+
+  /* ---- checklist / cadence ---- */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  .tile h3 { font-family: 'Inter', sans-serif; font-size: .95rem; font-weight: 700; margin: 0 0 .6rem; }
+  .tile p, .tile li { font-size: .88rem; color: var(--mid); margin: 0 0 .4rem; }
+  .tile ul { margin: 0; padding-left: 1.1rem; }
+  .tile code { background: var(--tag-bg); color: var(--gold-dim); padding: .1rem .4rem; border-radius: 3px; font-family: ui-monospace, monospace; font-size: .82rem; }
+
+  .callout {
+    border-left: 3px solid var(--green);
+    background: color-mix(in srgb, var(--green) 10%, transparent);
+    padding: 1rem 1.3rem;
+    border-radius: 0 6px 6px 0;
+    font-size: .9rem;
+  }
+  .callout b { color: var(--ink); }
+
+  footer.page {
+    margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line);
+    font-size: .78rem; color: var(--mid); display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<div class="wrap">
+
+  <div class="masthead">
+    <span class="brand">Italian<em>ToBe</em></span>
+    <span class="kicker">Internal · Newsletter Kit</span>
+  </div>
+  <h1 class="title">The biweekly citizenship note</h1>
+  <p class="dek">
+    One reusable shape for the guide-list send: a law update, a practical note,
+    and one door back into the assessment — nothing more. Copy the anatomy below
+    into a plain-text email, swap in the week's topic, done.
+  </p>
+
+  <!-- ANATOMY -->
+  <section class="doc">
+    <span class="kicker">Anatomy</span>
+    <h2>Five blocks, always in this order</h2>
+    <div class="anatomy">
+      <div class="anatomy-email">
+        <div class="subj">
+          <span class="label">Subject line</span>
+          Two-Generation Rule: What Actually Changed
+        </div>
+
+        <div class="block on"><p><b>1. The one line.</b> No "Hi {name}" — the guide already did that. Open on the topic.</p></div>
+        <div class="block on"><p><b>2. The update.</b> What changed, in one paragraph. Plain language, no case citations.</p></div>
+        <div class="block on"><p><b>3. Why it matters to them.</b> Who this affects and what it means for a claim.</p></div>
+        <div class="block on"><p><b>4. One door back in.</b> A single link — assessment, blueprint, or "reply with your situation."</p></div>
+        <div class="block"><p class="ghost">Erik Holzer<br>ItalianToBe, Naples</p></div>
+        <div class="block"><p class="ghost" style="font-size:.82rem">You're on this list because you requested the citizenship guide.<br>Unsubscribe: app.italiantobe.com/unsubscribe/&lt;token&gt;</p></div>
+      </div>
+      <div class="anatomy-notes">
+        <div class="note"><h4>SUBJECT LINE</h4><p>Name the rule or the office, not "Newsletter #14." People decide to open from three words.</p></div>
+        <div class="note"><h4>ONE TOPIC PER ISSUE</h4><p>Two-generation limit, or 1948 rule, or apostilles — not a digest. A digest reads like effort spent on volume, not on them.</p></div>
+        <div class="note"><h4>WHY IT MATTERS</h4><p>This is the paragraph that turns a law update into a reason to act. Never skip it for the update alone.</p></div>
+        <div class="note"><h4>ONE LINK ONLY</h4><p>A menu of links reads as marketing. One clear door — usually the assessment — reads as help.</p></div>
+        <div class="note"><h4>SIGN-OFF</h4><p>Erik, by name. The guide email already set this voice — keep it consistent.</p></div>
+        <div class="note"><h4>OPT-OUT LINE</h4><p>A real one-click link, unique per person — <code>/unsubscribe/&lt;their lead token&gt;</code>. It works the moment they click it, no reply needed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKED EXAMPLE -->
+  <section class="doc">
+    <span class="kicker">Worked example</span>
+    <h2>One issue, fully written</h2>
+    <div class="envelope">
+      <div class="meta">
+        <div><b>From</b> — Erik Holzer &lt;info@italiantobe.com&gt;</div>
+        <div><b>Subject</b> — Two-Generation Rule: What Actually Changed</div>
+      </div>
+      <div class="body">Since the March 2025 reform, an Italian-born great-grandparent no longer carries a
+claim on its own — the ordinary route now stops two generations back from you.
+That single change is why most of the questions I get start with
+"my great-grandfather was born in Italy, does that still count."
+
+It usually still counts, just not the way it used to. If your Italian ancestor
+is a grandparent or closer, the reform doesn't touch your line at all. If it's
+a great-grandparent or further, the ordinary consulate route is closed, but two
+things can still be true: a parent who lived in Italy for two years before you
+were born reopens it, and a case already filed before the cutoff is grandfathered
+in regardless of degree.
+
+Worth fifteen minutes to check even if you assumed you were out: <a href="https://app.italiantobe.com" style="color:var(--gold-dim);font-weight:600;text-decoration:none;">run the free eligibility check</a> —
+it asks exactly these questions and tells you which side of the line you're on.
+
+<span class="sig">Erik Holzer
+ItalianToBe, Naples
+https://italiantobe.com
+
+You're on this list because you requested the citizenship guide.
+Unsubscribe: https://app.italiantobe.com/unsubscribe/{their-lead-token}</span></div>
+    </div>
+  </section>
+
+  <!-- CADENCE + PRACTICAL -->
+  <section class="doc">
+    <span class="kicker">Sending it</span>
+    <h2>Cadence &amp; mechanics</h2>
+    <div class="grid2">
+      <div class="tile card">
+        <h3>Rhythm</h3>
+        <ul>
+          <li>Every second Tuesday, late morning (Naples time) — consistent beats trust, more than any particular day does.</li>
+          <li>Skip an issue rather than pad one. Nothing to say is a valid week.</li>
+          <li>One topic. If two feel urgent, that's two issues, two weeks apart.</li>
+        </ul>
+      </div>
+      <div class="tile card">
+        <h3>Where the list comes from</h3>
+        <ul>
+          <li>Export current subscribers any time from <code>/admin/leads</code> → "Download newsletter list."</li>
+          <li>Only marketing-consented rows are in that file — everyone on it already opted in.</li>
+          <li>Each row includes its own <code>unsubscribe_url</code> column — merge that into the footer link per recipient, don't reuse one link for everyone.</li>
+          <li>Send from the same <code>info@italiantobe.com</code> mailbox the app already uses, so replies land somewhere you'll see them.</li>
+        </ul>
+      </div>
+      <div class="tile card">
+        <h3>Topic bank — never run dry</h3>
+        <ul>
+          <li>One gate from the engine, explained in plain language (two-generation limit, 1948 rule, renunciation, marriage-loss).</li>
+          <li>One office/document deep-dive (apostille vs. no apostille, what a comune actually wants).</li>
+          <li>One "story from a case file" — anonymized, what looked closed and wasn't, or vice versa.</li>
+        </ul>
+      </div>
+      <div class="tile card">
+        <h3>Format rules</h3>
+        <ul>
+          <li>Plain text, like the guide and confirmation emails already sent — no HTML template to break across inboxes.</li>
+          <li>Under 200 words in the body. If it needs more, it's two issues.</li>
+          <li>One link, never more than one.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="callout">
+    <b>Where the token comes from:</b> every lead already has one (their <code>Lead.token</code>
+    from the CSV export). When you send an issue, pair each address with its own token and drop
+    it into the link — one click unsubscribes that person immediately, no reply or manual
+    cleanup required.
+  </div>
+
+  <footer class="page">
+    <span>ItalianToBe — internal reference</span>
+    <span>Not for distribution outside the team</span>
+  </footer>
+</div>

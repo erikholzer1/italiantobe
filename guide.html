@@ -92,17 +92,13 @@
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="you@example.com" required/>
       </div>
-      <label class="check-row">
-        <input type="checkbox" name="updates" value="yes"/>
-        <span>Send me occasional updates on Italian citizenship law and news. You can unsubscribe anytime.</span>
-      </label>
       <button type="submit" class="submit-btn" id="submitBtn">Send Me the Guide</button>
-      <p class="form-note">We only use your email to send the guide and anything you opt into above.</p>
+      <p class="form-note">We'll email you the guide and occasional updates on Italian citizenship. Unsubscribe anytime.</p>
     </form>
 
     <div class="success-msg" id="successMsg">
       <h2>Check your inbox.</h2>
-      <p>Your guide is on its way, attached and ready to open. If it does not arrive in a minute or two, check your spam folder — or <a id="downloadLink" href="#" style="color:var(--green);font-weight:600;">download it directly here</a>.</p>
+      <p id="successText">Your guide is on its way, attached and ready to open. If it does not arrive in a minute or two, check your spam folder.</p>
     </div>
   </div>
 
@@ -147,8 +143,9 @@
         return;
       }
 
-      if (json.download) {
-        document.getElementById('downloadLink').href = 'https://app.italiantobe.com' + json.download;
+      if (json.warning && json.download) {
+        document.getElementById('successText').innerHTML =
+          'We could not email your guide just now, but you can <a href="https://app.italiantobe.com' + json.download + '" style="color:var(--green);font-weight:600;">download it directly here</a>.';
       }
       form.style.display = 'none';
       document.getElementById('successMsg').style.display = 'block';
