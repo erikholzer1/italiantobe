@@ -71,7 +71,7 @@
   <div class="page-header">
     <p>Self-Guided Option</p>
     <h1>Do It Yourself — <em>With Expert Support</em></h1>
-    <p class="price">€780, 3-month package</p>
+    <p class="price" id="headerPrice">From €780, 3-month package</p>
     <p class="sub">You do the legwork. We make sure you are doing it right, and stay in your corner to guide, review, and course-correct along the way.</p>
   </div>
 
@@ -92,11 +92,22 @@
 
       <div id="preCheckout">
         <div class="form-error" id="formError"></div>
+
+        <p style="font-size:0.85rem;font-weight:600;margin-bottom:0.6rem;">Which generation is your Italian-born ancestor?</p>
+        <label class="check-row" style="margin-bottom:0.6rem;">
+          <input type="radio" name="generation" value="parent" checked/>
+          <span><strong>Parent</strong> is Italian-born, &euro;780</span>
+        </label>
         <label class="check-row">
+          <input type="radio" name="generation" value="grandparent"/>
+          <span><strong>Grandparent</strong> is Italian-born, &euro;980</span>
+        </label>
+
+        <label class="check-row" style="margin-top:1.2rem;">
           <input type="checkbox" id="consentBox"/>
           <span>I understand this package is delivered as ongoing support over 3 months and that <strong>all sales are final</strong>. No refunds.</span>
         </label>
-        <button class="continue-btn" id="continueBtn" disabled>Continue to payment</button>
+        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, €780</button>
       </div>
 
       <div id="checkout-mount"></div>
@@ -112,10 +123,30 @@
   <script>
     const STRIPE_PUBLISHABLE_KEY = "pk_live_51UETJ1DagmDMc0JPoiCHQaBwiMmziwrh2KgMg2V9ttvn5UwFUCVJzxj6K0ea2eFJ4FMBZE1Et8HP7Fq6hmUZrIIr00z0J8vglv";
 
+    const PRICES = { parent: 780, grandparent: 980 };
+
     const consentBox = document.getElementById('consentBox');
     const continueBtn = document.getElementById('continueBtn');
     const errorBox = document.getElementById('formError');
     const preCheckout = document.getElementById('preCheckout');
+    const headerPrice = document.getElementById('headerPrice');
+    const generationInputs = document.querySelectorAll('input[name="generation"]');
+
+    function selectedGeneration() {
+      const checked = document.querySelector('input[name="generation"]:checked');
+      return checked ? checked.value : 'parent';
+    }
+
+    function updatePriceDisplay() {
+      const price = PRICES[selectedGeneration()];
+      headerPrice.textContent = '€' + price + ', 3-month package';
+      continueBtn.textContent = 'Continue to payment, €' + price;
+    }
+
+    generationInputs.forEach(function (input) {
+      input.addEventListener('change', updatePriceDisplay);
+    });
+    updatePriceDisplay();
 
     consentBox.addEventListener('change', function () {
       continueBtn.disabled = !consentBox.checked;
@@ -124,6 +155,7 @@
     continueBtn.addEventListener('click', async function () {
       errorBox.style.display = 'none';
       continueBtn.disabled = true;
+      const generation = selectedGeneration();
       continueBtn.textContent = 'Loading payment form…';
 
       let res, json;
@@ -131,7 +163,7 @@
         res = await fetch('https://app.italiantobe.com/api/checkout/diy', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ consent: true }),
+          body: JSON.stringify({ consent: true, generation: generation }),
         });
         json = await res.json();
       } catch {
@@ -154,7 +186,7 @@
       errorBox.textContent = message;
       errorBox.style.display = 'block';
       continueBtn.disabled = false;
-      continueBtn.textContent = 'Continue to payment';
+      updatePriceDisplay();
     }
   </script>
 
