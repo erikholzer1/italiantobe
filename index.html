@@ -197,58 +197,64 @@
       --dark:  #111827;
       --mid:   #6B7280;
       --light: #F3F4F6;
+      /* Warmer, quieter neutrals layered on top of the existing palette
+         rather than replacing it — the identity colors (navy/gold/green)
+         stay, but the default backdrop is now this cream, not stark grey. */
+      --warm-bg: #F3EEE4;
+      --charcoal: #211F1C;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm-bg); color: var(--charcoal); overflow-x: hidden; }
 
     /* NAV */
+    /* NAV — a frosted, near-transparent bar in the Reschio manner: it sits
+       on top of the full-bleed hero photo just as readably as it does over
+       a plain cream section further down, since it never depends on what's
+       behind it being one particular color. */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.2rem 4rem;
-      background: rgba(26,39,68,0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(201,168,76,0.2);
+      background: rgba(247,243,235,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17,24,39,0.06);
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
-    .nav-logo span { color: rgba(255,255,255,0.55); font-style: italic; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; letter-spacing: 0.04em; color: var(--charcoal); text-decoration: none; }
+    .nav-logo span { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.55rem 1.3rem; border-radius: 2px; font-weight: 600 !important; }
-    .nav-cta:hover { opacity: 0.88; }
+    .nav-cta { background: var(--charcoal); color: #fff !important; padding: 0.6rem 1.4rem; border-radius: 1px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: rgba(255,255,255,0.8); border-radius: 2px; transition: all 0.3s; }
-    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--navy); padding: 1rem 1.5rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: var(--warm-bg); padding: 1rem 1.5rem 1.5rem; border-top: 1px solid rgba(17,24,39,0.08); z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
     .mobile-menu.open { display: block; }
     .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .mobile-menu ul li a { display: block; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color 0.2s; }
+    .mobile-menu ul li a { display: block; color: var(--charcoal); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.9rem 0; border-bottom: 1px solid rgba(17,24,39,0.08); transition: color 0.2s; }
     .mobile-menu ul li a:hover { color: var(--gold); }
     .mobile-menu ul li:last-child a { border-bottom: none; color: var(--gold); font-weight: 600; padding-top: 1.2rem; }
 
-    /* HERO */
+    /* HERO — full-bleed photo, not a boxed side image, so a landscape shot
+       never has to be force-cropped into a narrow portrait frame again. */
     .hero {
-      min-height: 90vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #243860 45%, var(--green) 100%);
+      min-height: 92vh;
+      background: url('lake-como-pool.jpg') center 58% / cover no-repeat;
       display: flex; align-items: center;
       position: relative; overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: linear-gradient(180deg, rgba(17,24,39,0.62) 0%, rgba(17,24,39,0.22) 42%, rgba(17,24,39,0.7) 100%);
     }
     .hero::after {
       content: '';
-      position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+      position: absolute; left: 0; top: 0; bottom: 0; width: 5px; z-index: 1;
       background: linear-gradient(to bottom, #009246 33%, #ffffff 33%, #ffffff 66%, #CE2B37 66%);
     }
-    .hero-content { position: relative; z-index: 2; width: 100%; padding: 4rem 4rem 4rem 5rem; display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center; }
-    .hero-text { max-width: 580px; }
-    .hero-img-wrap { position: relative; }
-    .hero-img-wrap img { width: 100%; height: 480px; object-fit: cover; object-position: center; border-radius: 2px; display: block; box-shadow: 0 32px 80px rgba(0,0,0,0.45); }
-    .hero-img-wrap::before { content: ''; position: absolute; inset: -8px -8px auto auto; width: 60px; height: 60px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); border-radius: 0 2px 0 0; z-index: 1; }
-    .hero-img-wrap::after { content: ''; position: absolute; inset: auto auto -8px -8px; width: 60px; height: 60px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); border-radius: 0 0 0 2px; z-index: 1; }
+    .hero-content { position: relative; z-index: 2; width: 100%; padding: 4rem 4rem 4rem 5rem; }
+    .hero-text { max-width: 620px; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 0.8rem;
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
@@ -274,6 +280,18 @@
     /* SECTIONS */
     section { padding: 5rem 4rem; }
     .section-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
+    /* Reschio's centered-eyebrow signature: thin rules flanking a tag,
+       used only where the tag itself is centered — a rule floating beside
+       a left-aligned label would just look like a stray line. */
+    .tag-flanked { display: flex; align-items: center; justify-content: center; gap: 0.9rem; }
+    .tag-flanked::before, .tag-flanked::after { content: ''; width: 32px; height: 1px; background: currentColor; opacity: 0.5; }
+
+    /* WATERMARK STATEMENT — a large, faint word behind a centered serif
+       paragraph. Reschio uses this for its "brand DNA" statement; here it
+       carries the equivalent mission line. */
+    .watermark-section { position: relative; padding: 6rem 4rem; text-align: center; overflow: hidden; background: var(--warm-bg); }
+    .watermark-word { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Playfair Display', serif; font-size: clamp(6rem, 18vw, 14rem); font-weight: 700; color: var(--charcoal); opacity: 0.05; white-space: nowrap; pointer-events: none; z-index: 0; }
+    .watermark-statement { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.55; color: var(--charcoal); }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.15; color: var(--dark); margin-bottom: 1rem; }
     .section-title em { font-style: italic; color: var(--mid); }
     .section-sub { font-size: 1rem; line-height: 1.8; color: var(--mid); max-width: 580px; margin-bottom: 3rem; font-weight: 300; }
@@ -342,9 +360,11 @@
     .capture-note { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 1rem; }
 
     /* ABOUT */
-    .about { background: var(--cream); }
+    .about { background: var(--cream); overflow: hidden; }
     .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
-    .about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 2px; }
+    /* Photo bleeds past the section's own top/bottom edge, Reschio's
+       asymmetric-split trick for keeping a boxed grid from reading as flat. */
+    .about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 2px; margin: -3rem 0; height: calc(100% + 6rem); }
     .about-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
     .about h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 2.8vw, 2.2rem); color: var(--dark); margin-bottom: 1.2rem; line-height: 1.25; }
     .about p { font-size: 0.95rem; line-height: 1.85; color: var(--mid); margin-bottom: 1rem; font-weight: 300; }
@@ -411,12 +431,12 @@
     /* FAQ */
     .faq { background: #fff; }
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .faq-item { padding: 1.8rem; background: var(--light); border-radius: 2px; border-left: 3px solid var(--gold); }
+    .faq-item { padding: 1.8rem; background: var(--warm-bg); border-radius: 2px; border-left: 3px solid var(--gold); }
     .faq-item h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dark); margin-bottom: 0.6rem; line-height: 1.35; }
     .faq-item p { font-size: 0.84rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
 
     /* CTA BANNER */
-    .consult-section { background: var(--light); padding: 6rem 4rem; text-align: center; }
+    .consult-section { background: var(--warm-bg); padding: 6rem 4rem; text-align: center; }
     .consult-inner { max-width: 760px; margin: 0 auto; }
     .consult-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
     .consult-inner h2 em { font-style: italic; color: var(--gold); }
@@ -478,7 +498,7 @@
     .footer-links a:hover { color: var(--gold); }
 
     /* DIY CARD */
-    .diy-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; border-left: 4px solid var(--green); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; background: var(--light); }
+    .diy-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 2px; border-left: 4px solid var(--green); padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; background: var(--warm-bg); }
     .diy-body { min-width: 0; }
     .diy-cta { text-align: center; flex-shrink: 0; }
 
@@ -504,8 +524,8 @@
       section { padding: 3.5rem 1.5rem; }
       .hero-content { padding: 3rem 1.5rem 3rem 2rem; }
       .qualify-grid, .about-grid { grid-template-columns: 1fr; }
-      .hero-content { grid-template-columns: 1fr; }
-      .hero-img-wrap { display: none; }
+      .about-img { margin: 0 0 1.5rem; height: auto; }
+      .watermark-section { padding: 3.5rem 1.5rem; }
       .how-grid { grid-template-columns: 1fr 1fr; }
       .packages-grid { grid-template-columns: 1fr; }
       .faq-grid { grid-template-columns: 1fr; }
@@ -567,12 +587,9 @@
         <h1>To be Italian,<br>or <em>not to be.</em></h1>
         <p>We explore every path your bloodline opens: jure sanguinis, the 1948 rule, residency, marriage. If there's a way to your Italian passport, we find it.</p>
         <div class="hero-btns">
-          <a href="guide.html" class="btn-gold">Get the Free Guide</a>
-          <a href="https://app.italiantobe.com/" class="btn-outline-white">Take the Assessment</a>
+          <a href="https://app.italiantobe.com/" class="btn-gold">Take the Pre-Eligibility Assessment</a>
+          <a href="guide.html" class="btn-outline-white">Get the Free Guide</a>
         </div>
-      </div>
-      <div class="hero-img-wrap">
-        <img src="positano-garden.jpg" alt="A private terrace over the Amalfi coast, roses in the foreground and the sea beyond" />
       </div>
     </div>
   </section>
@@ -835,21 +852,21 @@
     </div>
   </section>
 
-  <!-- PHOTO BANNER: LAKE COMO -->
-  <div class="photo-banner" style="background-image: url('lake-como-pool.jpg');">
+  <!-- PHOTO BANNER: POSITANO -->
+  <div class="photo-banner" style="background-image: url('positano-garden.jpg');">
     <div class="photo-banner-inner">
-      <p class="section-tag">The Life Waiting On The Other Side</p>
+      <p class="section-tag tag-flanked">The Life Waiting On The Other Side</p>
       <h2>This is not a vacation you are planning. <em>It is a birthright you are claiming.</em></h2>
     </div>
   </div>
 
-  <!-- FREE GUIDE CAPTURE -->
+  <!-- PRE-ELIGIBILITY ASSESSMENT CAPTURE -->
   <section class="capture" id="capture">
     <div class="capture-inner">
-      <p class="section-tag">Free Resource</p>
+      <p class="section-tag tag-flanked">Eligibility</p>
       <h2>"Do I qualify?"</h2>
-      <p>Download the free Italian citizenship qualification guide. We walk you through the key eligibility questions, the most common disqualifiers, and exactly what to research next. At no cost.</p>
-      <a href="guide.html" class="btn-gold" style="display:inline-block;margin-top:.5rem;">Get the Free Guide</a>
+      <p>The only real answer comes from a proper look at your bloodline and your documents. Our Pre-Eligibility Assessment walks every route, consular, the 1948 rule, residency, against your specific case, and tells you exactly where you stand and what to gather next.</p>
+      <a href="https://app.italiantobe.com/" class="btn-gold" style="display:inline-block;margin-top:.5rem;">Take the Pre-Eligibility Assessment</a>
     </div>
   </section>
 
@@ -860,7 +877,6 @@
       <div>
         <p class="about-tag">Who We Are</p>
         <h2>A citizenship consulting practice built in Naples, by people who know this process from the inside.</h2>
-        <p>ItalianToBe is built around one core belief: that the people best placed to guide you through the Italian citizenship process are those who have lived it themselves, based in Italy, with direct access to the legal and bureaucratic systems you need to navigate.</p>
         <p>Every case is handled personally, and where a matter calls for formal legal representation, a court proceeding, a contested line, a question of how the law applies to your family, we work with a qualified Italian attorney in Naples rather than working around it. That combination is the point: the procedural work done properly on the ground, with qualified legal judgment available when a case needs it.</p>
         <div class="about-stats">
           <div><span class="about-stat-num">15</span><span class="about-stat-label">Years in Italy</span></div>
@@ -870,6 +886,12 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- WATERMARK STATEMENT -->
+  <section class="watermark-section">
+    <span class="watermark-word" aria-hidden="true">ITALIA</span>
+    <p class="watermark-statement">ItalianToBe is built around one core belief: that the people best placed to guide you through the Italian citizenship process are those who have lived it themselves, based in Italy, with direct access to the legal and bureaucratic systems you need to navigate.</p>
   </section>
 
   <!-- TEAM -->
@@ -939,7 +961,7 @@
   <!-- CONSULTATION SECTION -->
   <section class="consult-section" id="book">
     <div class="consult-inner">
-      <p class="section-tag">Free 10-Minute Call</p>
+      <p class="section-tag tag-flanked">Free 10-Minute Call</p>
       <h2>Already have your results? <em>Let's talk them through.</em></h2>
       <p class="consult-lead">Once you have completed the Pre-Eligibility Check or the Citizenship Blueprint, book 10 minutes with us to go over what it found. We can speak to specifics because we already have them, not a first conversation from scratch.</p>
       <div class="consult-cards">
@@ -1005,7 +1027,7 @@
   <!-- PHOTO BANNER: UMBRIA -->
   <div class="photo-banner" style="background-image: url('umbria-garden.jpeg');">
     <div class="photo-banner-inner">
-      <p class="section-tag">Naples, Italy</p>
+      <p class="section-tag tag-flanked">Naples, Italy</p>
       <h2>Somewhere in Italy, a table is already set. <em>The only question is when you sit down at it.</em></h2>
     </div>
   </div>
@@ -1014,11 +1036,11 @@
   <div class="cta-banner" id="contact">
     <div>
       <h2>Ready to find out if you're <em>already Italian?</em></h2>
-      <p>Start with the free guide, or take the Pre-Eligibility Check. A free 10-minute call is there once you have your results.</p>
+      <p>Take the Pre-Eligibility Check to see where you stand. A free 10-minute call is there once you have your results.</p>
     </div>
     <div class="cta-btns">
-      <a href="guide.html" class="btn-gold">Get the Free Guide</a>
-      <a href="https://app.italiantobe.com/" class="btn-outline-white" style="text-align:center;">Start Your Assessment</a>
+      <a href="https://app.italiantobe.com/" class="btn-gold">Start Your Assessment</a>
+      <a href="guide.html" class="btn-outline-white" style="text-align:center;">Get the Free Guide</a>
     </div>
   </div>
 
