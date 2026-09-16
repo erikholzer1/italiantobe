@@ -311,6 +311,10 @@
     .benefits-inner { max-width: 1000px; margin: 0 auto; }
     .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.8rem; margin-top: 2.2rem; }
     .benefit-item { border-top: 2px solid var(--gold); padding-top: 0.9rem; }
+    /* A 4th item wraps to a row of its own under the 3 above — centered
+       under them, at the same width as one column, rather than stuck under
+       the first. */
+    .benefit-item:last-child { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 280px; margin: 0 auto; }
     .benefit-item .benefit-icon { font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
     .benefit-item strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.4rem; line-height: 1.3; }
     .benefit-item p { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
