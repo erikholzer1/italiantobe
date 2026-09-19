@@ -31,7 +31,6 @@
     .page-header { background: var(--navy); padding: 4rem 2rem 3rem; text-align: center; }
     .page-header p { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: #fff; line-height: 1.2; margin-bottom: 1rem; }
-    .page-header .price { font-size: 1.3rem; color: var(--gold); font-weight: 600; margin-bottom: .75rem; }
     .page-header .sub { color: rgba(255,255,255,0.55); font-size: 0.92rem; font-weight: 300; max-width: 480px; margin: 0 auto; line-height: 1.8; }
 
     .wrap { max-width: 520px; margin: 0 auto; padding: 3rem 2rem 6rem; }
@@ -77,7 +76,6 @@
   <div class="page-header">
     <p>Self-Guided Option</p>
     <h1>Do It Yourself — <em>With Expert Support</em></h1>
-    <p class="price" id="headerPrice">From €780</p>
     <p class="sub">You do the legwork. We make sure you are doing it right, and stay in your corner to guide, review, and course-correct along the way.</p>
   </div>
 
@@ -150,7 +148,6 @@
     const continueBtn = document.getElementById('continueBtn');
     const errorBox = document.getElementById('formError');
     const preCheckout = document.getElementById('preCheckout');
-    const headerPrice = document.getElementById('headerPrice');
     const generationInputs = document.querySelectorAll('input[name="generation"]');
     const extraDocsBox = document.getElementById('extraDocsBox');
     const extraDocsRow = document.getElementById('extraDocsRow');
@@ -179,7 +176,6 @@
 
     function updatePriceDisplay() {
       const total = PRICES[selectedGeneration()] + currentExtraDocs() * PER_DOC_PRICE;
-      headerPrice.textContent = fmt(total);
       continueBtn.textContent = 'Continue to payment, ' + fmt(total);
     }
 
