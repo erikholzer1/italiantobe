@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="/favicon.ico" sizes="any"/>
   <link rel="apple-touch-icon" href="/logo.png"/>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18457629412"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18457629412');
+  </script>
   <title>Italian Citizenship by Descent | Jure Sanguinis Consulting | ItalianToBe</title>
   <meta name="description" content="Explore every path your bloodline opens: jure sanguinis, the 1948 rule, residency, and naturalisation. Consultations with an actual dual citizen living in Naples, Italy."/>
   <meta name="robots" content="index, follow"/>
@@ -187,6 +195,30 @@
   }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    // First-touch ad attribution: if this landing URL carries a tracking
+    // param and nothing is stored yet, save it under the same cookie name
+    // and shape app.italiantobe.com already reads, so a sale over there
+    // still traces back to whichever ad brought someone here first.
+    (function () {
+      if (document.cookie.indexOf("_attr=") !== -1) return;
+      var params = new URLSearchParams(window.location.search);
+      var map = { gclid: "gclid", utm_source: "utmSource", utm_medium: "utmMedium", utm_campaign: "utmCampaign", utm_term: "utmTerm", utm_content: "utmContent" };
+      var found = {};
+      var any = false;
+      for (var key in map) {
+        var value = params.get(key);
+        if (value) { found[map[key]] = value; any = true; }
+      }
+      if (!any) return;
+      var expires = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toUTCString();
+      // A Domain attribute only "italiantobe.com" itself will accept — set
+      // anywhere else (localhost, a preview host), the browser silently
+      // rejects the whole cookie rather than just ignoring the mismatch.
+      var domainAttr = /(^|\.)italiantobe\.com$/.test(window.location.hostname) ? "; domain=.italiantobe.com" : "";
+      document.cookie = "_attr=" + encodeURIComponent(JSON.stringify(found)) + "; expires=" + expires + "; path=/" + domainAttr + "; samesite=lax";
+    })();
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -311,10 +343,9 @@
     .benefits-inner { max-width: 1000px; margin: 0 auto; }
     .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.8rem; margin-top: 2.2rem; }
     .benefit-item { border-top: 2px solid var(--gold); padding-top: 0.9rem; }
-    /* A 4th item wraps to a row of its own under the 3 above — centered
-       under them, at the same width as one column, rather than stuck under
-       the first. */
-    .benefit-item:last-child { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 280px; margin: 0 auto; }
+    /* Six items divide evenly into two rows of three at this max-width, so
+       no orphan to centre. (A previous rule centred the last item, which was
+       there for a 4th item wrapping alone onto its own row.) */
     .benefit-item .benefit-icon { font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
     .benefit-item strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.4rem; line-height: 1.3; }
     .benefit-item p { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
@@ -355,6 +386,8 @@
     .assess-point { font-size: 0.92rem; line-height: 1.55; color: var(--mid); border-top: 2px solid var(--gold); padding-top: 0.8rem; }
     .assess-point strong { display: block; color: var(--dark); font-weight: 650; margin-bottom: 0.2rem; }
     .assess-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+    /* Primary CTA sits directly under the heading, above the explainer copy. */
+    .assess-cta-top { margin: 0 0 1.8rem; }
     .assess-note { font-size: 0.78rem; color: var(--mid); margin: 1rem 0 2rem; }
     @media (max-width: 768px) { .assess { padding: 3rem 1.5rem; } }
     #capture { scroll-margin-top: 90px; }
@@ -635,22 +668,32 @@
         <div class="benefit-item">
           <span class="benefit-icon">🇪🇺</span>
           <strong>Live anywhere in the EU</strong>
-          <p>Work, study, or retire in any of the 27 member states, no visa, no sponsor, no expiration date on your welcome.</p>
+          <p>Settle in any of the 27 member states without a visa and without a sponsor. You move under EU free movement law instead of going through a country's immigration system.</p>
         </div>
         <div class="benefit-item">
-          <span class="benefit-icon">🏥</span>
-          <strong>Public healthcare, as a citizen</strong>
-          <p>Access to Italy's national health service, and every other EU country's, on the same terms as someone born there.</p>
+          <span class="benefit-icon">💼</span>
+          <strong>Work in 27 labor markets</strong>
+          <p>No work permit in any member state, employed or self-employed, with the same treatment on pay and conditions as a national. Licensing and tax rules still apply. The question of whether you are allowed to work there does not.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🚀</span>
+          <strong>Build a business across borders</strong>
+          <p>Open a company or work for yourself in another member state without a permit. Expanding from Italy into Spain or Portugal becomes a question of tax and registration rather than immigration.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🎓</span>
+          <strong>Study at citizen rates</strong>
+          <p>EU citizens are generally treated as domestic students rather than international ones, which can change the cost of a degree substantially. You can live in the country while you study, and work without a permit.</p>
         </div>
         <div class="benefit-item">
           <span class="benefit-icon">👨‍👩‍👧</span>
-          <strong>A birthright, not just for you</strong>
-          <p>Once recognized, citizenship passes to your children automatically. What took time, energy and money to prove, they simply have. At birth.</p>
+          <strong>Your children inherit it</strong>
+          <p>Recognition can carry citizenship to your children, giving them the United States and the EU from birth. Transmission rules have tightened in recent years, so we look at the rules that apply at the time rather than assume.</p>
         </div>
         <div class="benefit-item">
-          <span class="benefit-icon">🏡</span>
-          <strong>The option for a new life or a second home</strong>
-          <p>Buy property, open a business, or simply belong somewhere your family already does, without anyone's permission.</p>
+          <span class="benefit-icon">💍</span>
+          <strong>Your family comes with you</strong>
+          <p>When you move to another member state, EU law gives your spouse and close family the right to join you, live there and work. That holds even when they are not EU citizens themselves.</p>
         </div>
       </div>
     </div>
@@ -663,6 +706,9 @@
     <div class="assess-inner">
       <p class="section-tag">Eligibility</p>
       <h2 class="section-title">Do you qualify?</h2>
+      <div class="assess-cta-top">
+        <a href="https://app.italiantobe.com/" class="btn-gold">Start Your Assessment</a>
+      </div>
       <p class="section-sub">
         Not a definitive yes or no, since that depends on whether your documents
         tell the same story. Based on the information you provide, you will walk
@@ -677,7 +723,6 @@
       </div>
 
       <div class="assess-cta">
-        <a href="https://app.italiantobe.com/" class="btn-gold">Start Your Assessment</a>
         <a href="guide.html" class="btn-navy">Or get the free guide first</a>
       </div>
       <p class="assess-note">
@@ -842,7 +887,7 @@
       <div class="diy-body">
         <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A7C28;margin-bottom:0.4rem;">Full-Service Option · Most Cases</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dark);margin-bottom:0.5rem;">Hands-On Support</h3>
-        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:0.75rem;">For clean, straightforward jure sanguinis cases. Full end-to-end case management from document strategy through consulate or comune submission, we do the work.</p>
+        <p style="font-size:0.85rem;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:0.75rem;">For clean, straightforward jure sanguinis cases. Full end-to-end case management from document strategy through consulate or comune submission.</p>
         <div style="display:flex;gap:1rem 2rem;flex-wrap:wrap;">
           <span style="font-size:0.8rem;color:var(--mid);"><strong style="color:var(--dark);">✦</strong> Parent or grandparent is Italian-born ancestor</span>
           <span style="font-size:0.8rem;color:var(--mid);"><strong style="color:var(--dark);">✦</strong> Full document analysis</span>

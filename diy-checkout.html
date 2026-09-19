@@ -83,20 +83,6 @@
 
   <div class="wrap">
     <div class="card">
-      <ul>
-        <li>Up to 3 months of support</li>
-        <li>WhatsApp messaging support</li>
-        <li>1 initial video call, 30 minutes</li>
-        <li>2 audio calls per month, 15 minutes each</li>
-        <li>Document review and feedback, up to 5 documents</li>
-        <li>Comune request templates in Italian</li>
-      </ul>
-      <p style="font-size:.82rem;color:var(--mid);margin:-0.5rem 0 1.5rem;line-height:1.6;">
-        Need more than 5 documents reviewed? Add
-        <a href="https://app.italiantobe.com/documents" style="color:var(--green);">Document Analysis</a>
-        separately for anything beyond that.
-      </p>
-
       <div id="preCheckout">
         <div class="form-error" id="formError"></div>
 
@@ -105,32 +91,42 @@
           <input type="radio" name="generation" value="parent" checked/>
           <span><strong>Parent</strong> is Italian-born, &euro;780</span>
         </label>
-        <label class="check-row" style="margin-bottom:1.2rem;">
+        <label class="check-row" style="margin-bottom:1.5rem;">
           <input type="radio" name="generation" value="grandparent"/>
           <span><strong>Grandparent</strong> is Italian-born, &euro;980</span>
         </label>
 
-        <p class="section-label">How would you like to pay?</p>
-        <label class="plan-row">
-          <input type="radio" name="plan" value="installments" checked/>
-          <span>
-            <strong id="installmentsLabel">Retainer + one more payment</strong>
-            <span class="detail" id="installmentsDetail">€500 now to begin. The rest is billed once the next stage of support is ready.</span>
-          </span>
+        <ul>
+          <li>Up to 3 months of support</li>
+          <li>WhatsApp messaging support</li>
+          <li>1 initial video call, 30 minutes</li>
+          <li>2 audio calls per month, 15 minutes each</li>
+          <li>Document review and feedback, up to 5 documents</li>
+          <li>Comune request templates in Italian</li>
+        </ul>
+
+        <p class="section-label">Do you have more than 5 documents needing analysis?</p>
+        <p style="font-size:.8rem;color:var(--mid);margin:-0.3rem 0 0.7rem;line-height:1.5;">
+          An apostille or translation counts as part of the document it belongs to, not as a separate document.
+        </p>
+        <label class="check-row" style="margin-bottom:0.8rem;">
+          <input type="checkbox" id="extraDocsBox"/>
+          <span>Yes, I have more than 5 documents needing analysis</span>
         </label>
-        <label class="plan-row" style="margin-bottom:1.2rem;">
-          <input type="radio" name="plan" value="full"/>
-          <span>
-            <strong id="fullLabel">Pay in full, 5% off</strong>
-            <span class="detail" id="fullDetail">One payment now instead of two.</span>
-          </span>
-        </label>
+        <div id="extraDocsRow" style="display:none;align-items:center;gap:0.9rem;margin:0 0 1.3rem;">
+          <span style="font-size:.85rem;font-weight:600;">How many additional documents beyond the first 5?</span>
+          <div style="display:flex;align-items:center;gap:0.6rem;">
+            <button type="button" id="extraDocsMinus" style="width:2rem;height:2rem;border:1px solid rgba(0,0,0,0.15);background:#fff;border-radius:3px;cursor:pointer;font-size:1rem;">−</button>
+            <span id="extraDocsCount" style="min-width:1.5rem;text-align:center;font-weight:600;">1</span>
+            <button type="button" id="extraDocsPlus" style="width:2rem;height:2rem;border:1px solid rgba(0,0,0,0.15);background:#fff;border-radius:3px;cursor:pointer;font-size:1rem;">+</button>
+          </div>
+        </div>
 
         <label class="check-row" style="margin-top:0.4rem;">
           <input type="checkbox" id="consentBox"/>
-          <span>I understand this package is delivered as ongoing support for up to 3 months and that <strong>all sales are final</strong>. No refunds. Paying in two parts, the remaining fee is due in full before that stage begins.</span>
+          <span>I understand this package is delivered as ongoing support for up to 3 months and that <strong>all sales are final</strong>. No refunds.</span>
         </label>
-        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, €500 now</button>
+        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, €780</button>
       </div>
 
       <div id="checkout-mount"></div>
@@ -147,8 +143,8 @@
     const STRIPE_PUBLISHABLE_KEY = "pk_live_51UETJ1DagmDMc0JPoiCHQaBwiMmziwrh2KgMg2V9ttvn5UwFUCVJzxj6K0ea2eFJ4FMBZE1Et8HP7Fq6hmUZrIIr00z0J8vglv";
 
     const PRICES = { parent: 78000, grandparent: 98000 }; // cents
-    const RETAINER = 50000; // cents, fixed
-    const FULL_DISCOUNT = 0.05;
+    const PER_DOC_PRICE = 7999; // cents, matches Document Analysis's per-document rate
+    const MAX_EXTRA_DOCS = 15; // 20 total upload slots, 5 included free
 
     const consentBox = document.getElementById('consentBox');
     const continueBtn = document.getElementById('continueBtn');
@@ -156,10 +152,13 @@
     const preCheckout = document.getElementById('preCheckout');
     const headerPrice = document.getElementById('headerPrice');
     const generationInputs = document.querySelectorAll('input[name="generation"]');
-    const planInputs = document.querySelectorAll('input[name="plan"]');
-    const installmentsDetail = document.getElementById('installmentsDetail');
-    const fullLabel = document.getElementById('fullLabel');
-    const fullDetail = document.getElementById('fullDetail');
+    const extraDocsBox = document.getElementById('extraDocsBox');
+    const extraDocsRow = document.getElementById('extraDocsRow');
+    const extraDocsCount = document.getElementById('extraDocsCount');
+    const extraDocsMinus = document.getElementById('extraDocsMinus');
+    const extraDocsPlus = document.getElementById('extraDocsPlus');
+
+    let extraDocs = 1;
 
     function fmt(cents) {
       const value = cents / 100;
@@ -174,34 +173,35 @@
       return checked ? checked.value : 'parent';
     }
 
-    function selectedPlan() {
-      const checked = document.querySelector('input[name="plan"]:checked');
-      return checked ? checked.value : 'installments';
+    function currentExtraDocs() {
+      return extraDocsBox.checked ? extraDocs : 0;
     }
 
     function updatePriceDisplay() {
-      const total = PRICES[selectedGeneration()];
-      const balance = total - RETAINER;
-      const fullPrice = Math.round(total * (1 - FULL_DISCOUNT));
-
+      const total = PRICES[selectedGeneration()] + currentExtraDocs() * PER_DOC_PRICE;
       headerPrice.textContent = fmt(total);
-      installmentsDetail.textContent =
-        fmt(RETAINER) + ' now to begin. The remaining ' + fmt(balance) + ' is billed once the next stage of support is ready.';
-      fullLabel.textContent = 'Pay in full, ' + fmt(fullPrice);
-      fullDetail.textContent = 'One payment of ' + fmt(fullPrice) + ' now instead of two (saves ' + fmt(total - fullPrice) + ').';
-
-      continueBtn.textContent = selectedPlan() === 'full'
-        ? 'Continue to payment, ' + fmt(fullPrice)
-        : 'Continue to payment, ' + fmt(RETAINER) + ' now';
+      continueBtn.textContent = 'Continue to payment, ' + fmt(total);
     }
 
     generationInputs.forEach(function (input) {
       input.addEventListener('change', updatePriceDisplay);
     });
-    planInputs.forEach(function (input) {
-      input.addEventListener('change', updatePriceDisplay);
-    });
     updatePriceDisplay();
+
+    extraDocsBox.addEventListener('change', function () {
+      extraDocsRow.style.display = extraDocsBox.checked ? 'flex' : 'none';
+      updatePriceDisplay();
+    });
+    extraDocsMinus.addEventListener('click', function () {
+      extraDocs = Math.max(1, extraDocs - 1);
+      extraDocsCount.textContent = extraDocs;
+      updatePriceDisplay();
+    });
+    extraDocsPlus.addEventListener('click', function () {
+      extraDocs = Math.min(MAX_EXTRA_DOCS, extraDocs + 1);
+      extraDocsCount.textContent = extraDocs;
+      updatePriceDisplay();
+    });
 
     consentBox.addEventListener('change', function () {
       continueBtn.disabled = !consentBox.checked;
@@ -211,7 +211,7 @@
       errorBox.style.display = 'none';
       continueBtn.disabled = true;
       const generation = selectedGeneration();
-      const plan = selectedPlan();
+      const docs = currentExtraDocs();
       continueBtn.textContent = 'Loading payment form…';
 
       let res, json;
@@ -219,7 +219,7 @@
         res = await fetch('https://app.italiantobe.com/api/checkout/diy', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ consent: true, generation: generation, plan: plan }),
+          body: JSON.stringify({ consent: true, generation: generation, extraDocs: docs }),
         });
         json = await res.json();
       } catch {
