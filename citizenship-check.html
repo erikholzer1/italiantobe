@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="apple-touch-icon" href="/logo.png"/>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18457629412"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18457629412');
+    gtag('config', 'G-NV9H0GWDD5');
+  </script>
+  <title>Find Out If You're Already an Italian Citizen | Pre-Eligibility Check</title>
+  <meta name="description" content="Italy's 2025 reform changed who qualifies for citizenship by descent. Answer a few questions and get a clear read on where you stand, from a dual citizen based in Naples, Italy."/>
+  <!-- Ad-traffic page, not a page for search results to send people to directly. -->
+  <meta name="robots" content="noindex, nofollow"/>
+  <!-- Open Graph, for link-preview quality when this URL is used in a social ad itself. -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Find Out If You're Already an Italian Citizen"/>
+  <meta property="og:description" content="A $19.99 Pre-Eligibility Check, from a dual citizen based in Naples, Italy. See where you stand before you spend a cent on lawyers or documents."/>
+  <meta property="og:image" content="https://italiantobe.com/og-image.jpg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    // First-touch ad attribution: if this landing URL carries a tracking
+    // param and nothing is stored yet, save it under the same cookie name
+    // and shape the app (app.italiantobe.com) already reads, so a sale that
+    // happens over there still traces back to whichever ad brought someone
+    // here first — even though this page and the app are served from
+    // different places.
+    (function () {
+      if (document.cookie.indexOf("_attr=") !== -1) return;
+      var params = new URLSearchParams(window.location.search);
+      var map = { gclid: "gclid", utm_source: "utmSource", utm_medium: "utmMedium", utm_campaign: "utmCampaign", utm_term: "utmTerm", utm_content: "utmContent" };
+      var found = {};
+      var any = false;
+      for (var key in map) {
+        var value = params.get(key);
+        if (value) { found[map[key]] = value; any = true; }
+      }
+      if (!any) return;
+      var expires = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toUTCString();
+      // A Domain attribute only "italiantobe.com" itself will accept — set
+      // anywhere else (localhost, a preview host), the browser silently
+      // rejects the whole cookie rather than just ignoring the mismatch.
+      var domainAttr = /(^|\.)italiantobe\.com$/.test(window.location.hostname) ? "; domain=.italiantobe.com" : "";
+      document.cookie = "_attr=" + encodeURIComponent(JSON.stringify(found)) + "; expires=" + expires + "; path=/" + domainAttr + "; samesite=lax";
+    })();
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:  #1A2744;
+      --gold:  #C9A84C;
+      --green: #2C5F4A;
+      --cream: #F7F3EB;
+      --dark:  #111827;
+      --mid:   #6B7280;
+      --light: #F3F4F6;
+      --warm-bg: #F3EEE4;
+      --charcoal: #211F1C;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm-bg); color: var(--charcoal); overflow-x: hidden; }
+
+    /* NAV — logo and one button only. No links out, since this page has a
+       single job and every other link is a way to leave without doing it. */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(247,243,235,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17,24,39,0.06);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; letter-spacing: 0.04em; color: var(--charcoal); text-decoration: none; }
+    .nav-logo span { color: var(--gold); font-style: italic; }
+    .nav-cta { background: var(--charcoal); color: #fff !important; padding: 0.6rem 1.4rem; border-radius: 1px; font-weight: 600 !important; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-cta:hover { background: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      background: var(--charcoal);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center 58%; background-repeat: no-repeat;
+      opacity: 0; transition: opacity 1.6s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(17,24,39,0.62) 0%, rgba(17,24,39,0.22) 42%, rgba(17,24,39,0.7) 100%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 5px; z-index: 2;
+      background: linear-gradient(to bottom, #009246 33%, #ffffff 33%, #ffffff 66%, #CE2B37 66%);
+    }
+    .hero-content { position: relative; z-index: 2; width: 100%; padding: 4rem 4rem 4rem 5rem; }
+    .hero-text { max-width: 640px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: block; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5.2vw, 4.2rem); line-height: 1.1; color: #fff; margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero p { font-size: 1.1rem; line-height: 1.85; color: rgba(255,255,255,0.72); max-width: 580px; margin-bottom: 2rem; font-weight: 300; }
+    .btn-gold { background: var(--gold); color: var(--navy); padding: 1.1rem 2.4rem; border-radius: 2px; text-decoration: none; font-size: 0.92rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; display: inline-block; }
+    .btn-gold:hover { background: #b8973d; transform: translateY(-2px); }
+    .hero-reassure { margin-top: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+    /* STRIP */
+    .strip { background: var(--dark); padding: 1.8rem 4rem; display: flex; border-top: 3px solid var(--gold); }
+    .strip-item { flex: 1; padding: 0.8rem 1.5rem; border-right: 1px solid rgba(255,255,255,0.07); text-align: center; }
+    .strip-item:last-child { border-right: none; }
+    .strip-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); display: block; line-height: 1; margin-bottom: 0.3rem; }
+    .strip-label { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* SECTIONS */
+    section { padding: 5rem 4rem; }
+    .section-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
+    .tag-flanked { display: flex; align-items: center; justify-content: center; gap: 0.9rem; }
+    .tag-flanked::before, .tag-flanked::after { content: ''; width: 32px; height: 1px; background: currentColor; opacity: 0.5; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.15; color: var(--dark); margin-bottom: 1rem; }
+    .section-title em { font-style: italic; color: var(--mid); }
+    .section-sub { font-size: 1rem; line-height: 1.8; color: var(--mid); max-width: 580px; margin-bottom: 3rem; font-weight: 300; }
+
+    /* WHY IT MATTERS */
+    .benefits { background: #fff; padding: 4.5rem 4rem; }
+    .next-steps { background: var(--cream); padding: 4.5rem 4rem; }
+    .benefits-inner { max-width: 1000px; margin: 0 auto; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.8rem; margin-top: 2.2rem; }
+    .benefit-item { border-top: 2px solid var(--gold); padding-top: 0.9rem; }
+    .benefit-item .benefit-icon { font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
+    .benefit-item strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.4rem; line-height: 1.3; }
+    .benefit-item p { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+    /* HOW IT WORKS */
+    .how { background: var(--navy); }
+    .how .section-tag { color: var(--gold); }
+    .how .section-title { color: #fff; }
+    .how .section-sub { color: rgba(255,255,255,0.45); }
+    .how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); }
+    .how-card { background: #1f3158; padding: 2.5rem 2rem; }
+    .how-num { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); opacity: 0.2; display: block; line-height: 1; margin-bottom: 1rem; }
+    .how-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; margin-bottom: 0.75rem; }
+    .how-card p { font-size: 0.82rem; color: rgba(255,255,255,0.42); line-height: 1.7; font-weight: 300; }
+
+    /* TEAM */
+    .team { background: #fff; padding: 4rem; border-top: 1px solid rgba(0,0,0,0.06); }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+    .team-card { border: 1px solid rgba(0,0,0,0.07); border-radius: 2px; padding: 2rem; border-top: 3px solid var(--navy); display: flex; gap: 1.5rem; align-items: flex-start; }
+    .team-card.legal { border-top-color: var(--green); }
+    .team-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .team-avatar img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+    .team-info h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.2rem; }
+    .team-info .team-role { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; display: block; }
+    .team-info p { font-size: 0.82rem; color: var(--mid); line-height: 1.7; font-weight: 300; margin: 0; }
+    @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } .team { padding: 3rem 1.5rem; } }
+
+    /* FAQ */
+    .faq { background: var(--warm-bg); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .faq-item { padding: 1.8rem; background: #fff; border-radius: 2px; border-left: 3px solid var(--gold); }
+    .faq-item h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dark); margin-bottom: 0.6rem; line-height: 1.35; }
+    .faq-item p { font-size: 0.84rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--navy); padding: 5.5rem 4rem; text-align: center; border-top: 3px solid var(--gold); }
+    .final-cta-inner { max-width: 640px; margin: 0 auto; }
+    .final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #fff; line-height: 1.2; margin-bottom: 1rem; }
+    .final-cta h2 em { font-style: italic; color: var(--gold); }
+    .final-cta p { color: rgba(255,255,255,0.6); font-size: 0.98rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+    .final-cta .hero-reassure { margin-top: 1.2rem; }
+
+    /* FOOTER */
+    footer { background: #0D1525; padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); text-decoration: none; }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.22); }
+    .footer-links { display: flex; gap: 1.5rem; background: none; }
+    .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.32); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .hero-content { padding: 3rem 1.5rem 3rem 1.5rem; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .strip { flex-direction: column; padding: 2rem 1.5rem; }
+      .strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.8rem 0; }
+      .final-cta { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Italian<span>ToBe</span></a>
+    <a href="https://app.italiantobe.com/" class="nav-cta">Start Your Assessment</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="background-image:url('umbria-garden.jpeg');"></div>
+      <div class="hero-slide" style="background-image:url('lake-como-pool.jpg');"></div>
+      <div class="hero-slide" style="background-image:url('heavenly-como.jpg');"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="hero-eyebrow">Pre-Eligibility Check · $19.99</span>
+        <h1>Find out if you're already <em>an Italian citizen.</em></h1>
+        <p>Italy's 2025 reform changed who qualifies for citizenship by descent. Answer a few questions about your family line and get a clear, same-visit read on where you stand, from someone who has lived this process from inside Italy.</p>
+        <a href="https://app.italiantobe.com/" class="btn-gold">Take the Pre-Eligibility Check — $19.99</a>
+        <p class="hero-reassure">No commitment beyond this. A free 10-minute call is included once you have your results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-item"><span class="strip-num">30M+</span><span class="strip-label">Americans with Italian ancestry</span></div>
+    <div class="strip-item"><span class="strip-num">Jure Sanguinis</span><span class="strip-label">Right of blood, your birthright</span></div>
+    <div class="strip-item"><span class="strip-num">Dual</span><span class="strip-label">Keep your US citizenship</span></div>
+    <div class="strip-item"><span class="strip-num">🇮🇹</span><span class="strip-label">Naples-based team with Italian legal counsel</span></div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <section class="benefits" id="why">
+    <div class="benefits-inner">
+      <p class="section-tag">Why It Matters</p>
+      <h2 class="section-title">More than a passport.</h2>
+      <p class="section-sub">
+        Italian citizenship is not a document you file away. It is a standing
+        right to a different life, available to you the moment your claim is
+        recognized.
+      </p>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <span class="benefit-icon">🇪🇺</span>
+          <strong>Live anywhere in the EU</strong>
+          <p>Settle in any of the 27 member states without a visa and without a sponsor. You move under EU free movement law instead of going through a country's immigration system.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">💼</span>
+          <strong>Work in 27 labor markets</strong>
+          <p>No work permit in any member state, employed or self-employed, with the same treatment on pay and conditions as a national. Licensing and tax rules still apply. The question of whether you are allowed to work there does not.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🚀</span>
+          <strong>Build a business across borders</strong>
+          <p>Open a company or work for yourself in another member state without a permit. Expanding from Italy into Spain or Portugal becomes a question of tax and registration rather than immigration.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🎓</span>
+          <strong>Study at citizen rates</strong>
+          <p>EU citizens are generally treated as domestic students rather than international ones, which can change the cost of a degree substantially. You can live in the country while you study, and work without a permit.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">👨‍👩‍👧</span>
+          <strong>Your children inherit it</strong>
+          <p>Recognition can carry citizenship to your children, giving them the United States and the EU from birth. Transmission rules have tightened in recent years, so we look at the rules that apply at the time rather than assume.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">💍</span>
+          <strong>Your family comes with you</strong>
+          <p>When you move to another member state, EU law gives your spouse and close family the right to join you, live there and work. That holds even when they are not EU citizens themselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <p class="section-tag">The Process</p>
+    <h2 class="section-title" style="color:#fff;">Four steps. <em style="color:var(--gold);font-style:italic;">One passport.</em></h2>
+    <p class="section-sub">The process takes real work, but it's navigable. Here's how we move from your family tree to your Italian documents.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-num">01</span>
+        <h3>Verify Your Eligibility</h3>
+        <p>We review your lineage, identify your Italian ancestor, and confirm whether you have a valid claim before you invest time or money in documents.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">02</span>
+        <h3>Gather Your Documents</h3>
+        <p>Birth, death, and marriage records from each generation, both US and Italian, apostilled and certified. We give you the exact list with no guessing involved.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">03</span>
+        <h3>Contact Your Ancestral Comune</h3>
+        <p>Every case runs through the Italian municipality your ancestor came from. We guide you through contacting them, in Italian when needed. We can also handle this for you directly, for a fee.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">04</span>
+        <h3>Submit &amp; Receive</h3>
+        <p>File at the Italian consulate in your home country or directly in Italy. We prepare you for every step of the appointment and what to expect.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT COMES NEXT -->
+  <section class="next-steps" id="next-steps">
+    <div class="benefits-inner">
+      <p class="section-tag">However Much Support You Want</p>
+      <h2 class="section-title">The check tells you where you stand. <em>What comes next is up to you.</em></h2>
+      <p class="section-sub">
+        Some people take it from there themselves. Others want it handled
+        for them. Both are on the table once you know your case.
+      </p>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <span class="benefit-icon">🧭</span>
+          <strong>Do It Yourself, With Guidance</strong>
+          <p>Stay hands-on with your documents and comune requests, with expert review and course-correction along the way.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">🤝</span>
+          <strong>Full-Service Support</strong>
+          <p>Hand the process off entirely, document strategy, comune correspondence, and consulate preparation, managed for you.</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">📋</span>
+          <strong>Document Review</strong>
+          <p>Already have documents in hand? Get them checked against exactly the standard a comune or consulate will apply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <div class="team">
+    <p class="section-tag" style="color:var(--green);">Who You're Working With</p>
+    <h2 class="section-title">The people behind your case</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar"><img src="erik.png" alt="Erik Holzer"/></div>
+        <div class="team-info">
+          <h3>Erik Holzer</h3>
+          <span class="team-role">Founder &amp; Citizenship Consultant</span>
+          <p>Italian-American dual citizen with 15 years in Italy, 10 in Naples. Navigated the citizenship process firsthand and has since guided others through every stage.</p>
+        </div>
+      </div>
+      <div class="team-card legal">
+        <div class="team-avatar">⚖️</div>
+        <div class="team-info">
+          <h3>Avv. Carmine Cesaro</h3>
+          <span class="team-role">Italian Citizenship Law</span>
+          <p>ItalianToBe works with Avv. Carmine Cesaro, an Italian attorney based in Naples, for any matter requiring formal legal representation before Italian courts. Clients engage him directly; his fees are separate from ItalianToBe's.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <p class="section-tag">Common Questions</p>
+    <h2 class="section-title">Things people ask <em>before they start</em></h2>
+    <p class="section-sub">The process raises a lot of questions. Here are the ones we hear most often.</p>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>How far back can my Italian ancestor be?</h4>
+        <p>Under Italy's reformed citizenship law (Law 74/2025, effective May 2025), jure sanguinis is now limited to two generations: your parent or grandparent must be the Italian-born ancestor. Previously, there was no generational limit.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I have to give up my US citizenship?</h4>
+        <p>No. The United States allows dual citizenship, and Italy actively grants it. You keep your US passport in full and gain an Italian one alongside it.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How long does the whole process take?</h4>
+        <p>It varies widely, anywhere from several months to several years, depending on your consulate, your ancestral commune, and document availability. We help you set realistic expectations from the start.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I do this without moving to Italy?</h4>
+        <p>Yes. The consulate route lets you apply through the Italian consulate in your home country. No move required, though an Italy visit can sometimes speed up the commune records step.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if my lineage goes through a woman born before 1948?</h4>
+        <p>This is known as a 1948 case. You can still claim citizenship, but it requires filing directly with an Italian court, not the standard consular route. It's a longer process, but it works, and it's exactly the kind of thing the check below identifies for you.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if I don't qualify by descent under the new rules?</h4>
+        <p>Alternative pathways exist, including residency-based naturalization and citizenship through marriage. Take the Pre-Eligibility Check and we'll tell you plainly which of them may apply to your situation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Not sure where you stand? <em>That's the point of this.</em></h2>
+      <p>Take the Pre-Eligibility Check and get a confident answer, the specific facts your case turns on, and the records that would settle them, before you spend a cent on documents or lawyers.</p>
+      <a href="https://app.italiantobe.com/" class="btn-gold">Take the Pre-Eligibility Check — $19.99</a>
+      <p class="hero-reassure">No commitment beyond this. A free 10-minute call is included once you have your results.</p>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/" class="footer-logo">ItalianToBe</a>
+    <span class="footer-copy">© 2026 La Vita Verace LLC, dba ItalianToBe</span>
+    <nav class="footer-links">
+      <a href="/">Full Site</a>
+      <a href="mailto:info@italiantobe.com">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    const heroSlides = document.querySelectorAll('#heroSlides .hero-slide');
+    if (heroSlides.length > 1) {
+      let heroIndex = 0;
+      setInterval(() => {
+        heroSlides[heroIndex].classList.remove('active');
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        heroSlides[heroIndex].classList.add('active');
+      }, 4500);
+    }
+  </script>
+
+</body>
+</html>
