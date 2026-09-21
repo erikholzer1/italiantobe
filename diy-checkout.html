@@ -124,7 +124,7 @@
           <input type="checkbox" id="consentBox"/>
           <span>I understand this package is delivered as ongoing support for up to 3 months and that <strong>all sales are final</strong>. No refunds.</span>
         </label>
-        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, €780</button>
+        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, $780</button>
 
         <p style="font-size:.76rem;color:var(--mid);margin-top:1.2rem;line-height:1.5;">
           Not included, billed separately: codice fiscale and apartment/lease review assistance, handled by our attorney partner.
@@ -166,7 +166,7 @@
       const formatted = cents % 100 === 0
         ? value.toLocaleString('en-US', { maximumFractionDigits: 0 })
         : value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      return '€' + formatted;
+      return '$' + formatted;
     }
 
     function selectedGeneration() {

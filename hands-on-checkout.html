@@ -100,7 +100,7 @@
           <input type="radio" name="plan" value="installments" checked/>
           <span>
             <strong id="installmentsLabel">Retainer + milestones</strong>
-            <span class="detail" id="installmentsDetail">€500 now to begin. The rest is billed in two further stages as your case actually progresses — each due in full before that stage's work starts.</span>
+            <span class="detail" id="installmentsDetail">$500 now to begin. The rest is billed in two further stages as your case actually progresses — each due in full before that stage's work starts.</span>
           </span>
         </label>
         <ul style="margin:0 0 1.2rem 1.1rem;">
@@ -126,7 +126,7 @@
           <input type="checkbox" id="consentBox"/>
           <span id="consentText">I understand all sales are final. No refunds. Paying by milestone, each subsequent fee is due in full before that stage's work begins.</span>
         </label>
-        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, €500 now</button>
+        <button class="continue-btn" id="continueBtn" disabled>Continue to payment, $500 now</button>
 
         <p style="font-size:.76rem;color:var(--mid);margin-top:1.2rem;line-height:1.5;">
           Not included, billed separately: codice fiscale and apartment/lease review assistance, handled by our attorney partner.
@@ -165,7 +165,7 @@
       const formatted = cents % 100 === 0
         ? value.toLocaleString('en-US', { maximumFractionDigits: 0 })
         : value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      return '€' + formatted;
+      return '$' + formatted;
     }
 
     function selectedGeneration() {
